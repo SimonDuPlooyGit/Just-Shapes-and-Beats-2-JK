@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsrk7rsek1o0s"]
+
+[ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_epypp"]
+[ext_resource type="Script" uid="uid://dhun054ypdo8v" path="res://Scripts/Spawner.gd" id="1_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://celo8nwgdm2fm" path="res://Sprites/icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://cg0vj8u7nuqxa" path="res://Scripts/Conductor.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="2_d21ai"]
+[ext_resource type="AudioStream" uid="uid://dqdyejlse8fip" path="res://TOKYO MACHINE - CHEAT CODES [NCS Release].mp3" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://bw48yx3t1ou1r" path="res://Scripts/shaking.gd" id="4_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://243749__unfa__metronome-1khz-weak-pulse.mp3" id="5_q6r6c"]
+[ext_resource type="PackedScene" path="res://border.tscn" id="8_rj586"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 4.69185
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_epypp")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(987, 258)
+scale = Vector2(1, 0.974259)
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("2_d21ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, -0.599976)
+scale = Vector2(6.76, 6.4)
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("4_4d7sh")
+
+[node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0hol4")
+script = ExtResource("2_0e48y")
+
+[node name="StartTimer" type="Timer" parent="Conductor"]
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
+stream = ExtResource("5_q6r6c")
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("1_q6r6c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 1921.0
+offset_bottom = 1075.0
+color = Color(0, 0, 0, 1)
+
+[node name="Border" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(0.125, 0.125)
+transform = Transform2D(0.125, 0, 0, 0.125, 946.16, 560)
+
+[node name="Border2" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(0.235, 0.235)
+transform = Transform2D(0.235, 0, 0, 0.235, 946.16, 560)
+
+[node name="Border3" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(0.39, 0.39)
+transform = Transform2D(0.39, 0, 0, 0.39, 946.16, 560)
+
+[node name="Border4" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(0.595, 0.595)
+transform = Transform2D(0.595, 0, 0, 0.595, 946.16, 560)
+
+[node name="Border5" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(0.925, 0.925)
+transform = Transform2D(0.925, 0, 0, 0.925, 946.16, 560)
+
+[node name="Border6" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(1.405, 1.405)
+transform = Transform2D(1.405, 0, 0, 1.405, 946.16, 560)
+
+[node name="Border7" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(2.245, 2.245)
+transform = Transform2D(2.245, 0, 0, 2.245, 946.16, 560)
+
+[node name="Border8" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(3.475, 3.475)
+transform = Transform2D(3.475, 0, 0, 3.475, 946.16, 560)
+
+[node name="Border9" parent="." instance=ExtResource("8_rj586")]
+offset = Vector2(946.16, 560)
+scale = Vector2(5.21, 5.21)
+transform = Transform2D(5.21, 0, 0, 5.21, 946.16, 560)
+
+[connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
+[connection signal="tree_exited" from="Player" to="." method="reset_game"]
+[connection signal="beatS" from="Conductor" to="Border" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border2" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border3" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border4" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border5" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border6" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border7" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border8" method="change_opacity"]
+[connection signal="beatS" from="Conductor" to="Border9" method="change_opacity"]
+[connection signal="measureS" from="Conductor" to="Camera2D" method="start_shake"]
+[connection signal="noteS" from="Conductor" to="Spawner" method="spawn_obstacle"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqtp70cetejwh"]
+
+[ext_resource type="Texture2D" uid="uid://dc4iq26yrhd5h" path="res://Sprites/redsquare.png" id="1_gcjsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43u24"]
+size = Vector2(152, 1080)
+
+[node name="Wave" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.86646e-05, -1.00002)
+scale = Vector2(0.253334, 1.79667)
+texture = ExtResource("1_gcjsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.86646e-05, 9.15527e-05)
+shape = SubResource("RectangleShape2D_43u24")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://vfbpfteehog8"]
+
+[ext_resource type="Script" uid="uid://cnyth8h337uxp" path="res://Scripts/opacityChanger.gd" id="1_ujjr2"]
+
+[node name="Border" type="CanvasLayer"]
+script = ExtResource("1_ujjr2")
+
+[node name="Top" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+offset_left = -186.0
+offset_top = -178.0
+offset_right = 187.0
+offset_bottom = -138.0
+
+[node name="Bottom" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+offset_left = -186.0
+offset_top = 131.0
+offset_right = 187.0
+offset_bottom = 171.0
+
+[node name="Left" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+offset_left = -186.0
+offset_top = -138.0
+offset_right = -146.0
+offset_bottom = 131.0
+
+[node name="Right" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+offset_left = 147.0
+offset_top = -138.0
+offset_right = 187.0
+offset_bottom = 131.0

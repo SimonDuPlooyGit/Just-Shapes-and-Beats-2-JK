@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://c07cty3to51c1"]
+
+[ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_epypp"]
+[ext_resource type="Script" uid="uid://dhun054ypdo8v" path="res://Scripts/Spawner.gd" id="1_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://celo8nwgdm2fm" path="res://Sprites/icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://cg0vj8u7nuqxa" path="res://Scripts/Conductor.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://player.gd" id="2_d21ai"]
+[ext_resource type="AudioStream" uid="uid://dqdyejlse8fip" path="res://TOKYO MACHINE - CHEAT CODES [NCS Release].mp3" id="4_0hol4"]
+[ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://243749__unfa__metronome-1khz-weak-pulse.mp3" id="5_q6r6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 4.69185
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_epypp")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1, 0.974259)
+motion_mode = 1
+script = ExtResource("2_d21ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.499996, -0.599995)
+scale = Vector2(6.76, 6.4)
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0hol4")
+script = ExtResource("2_0e48y")
+
+[node name="StartTimer" type="Timer" parent="Conductor"]
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
+stream = ExtResource("5_q6r6c")
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("1_q6r6c")
+
+[connection signal="noteS" from="Conductor" to="Spawner" method="spawn_obstacle"]

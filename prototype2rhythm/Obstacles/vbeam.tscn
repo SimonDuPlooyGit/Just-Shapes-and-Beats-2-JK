@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh4eip1oydnda"]
+
+[ext_resource type="Script" uid="uid://ctcccju6dp7j0" path="res://Scripts/beamhaviour.gd" id="1_8ami3"]
+[ext_resource type="Texture2D" uid="uid://dc4iq26yrhd5h" path="res://Sprites/redsquare.png" id="1_wkg86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43u24"]
+size = Vector2(152, 1080)
+
+[node name="Wave" type="AnimatableBody2D"]
+script = ExtResource("1_8ami3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.86646e-05, -1.00002)
+scale = Vector2(0.253334, 1.79667)
+texture = ExtResource("1_wkg86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.86646e-05, 9.15527e-05)
+shape = SubResource("RectangleShape2D_43u24")
