@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsrk7rsek1o0s"]
+[gd_scene load_steps=13 format=3 uid="uid://bsrk7rsek1o0s"]
 
 [ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_epypp"]
 [ext_resource type="Script" uid="uid://dhun054ypdo8v" path="res://Scripts/Spawner.gd" id="1_q6r6c"]
@@ -8,7 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://dqdyejlse8fip" path="res://TOKYO MACHINE - CHEAT CODES [NCS Release].mp3" id="4_0hol4"]
 [ext_resource type="Script" uid="uid://bw48yx3t1ou1r" path="res://Scripts/shaking.gd" id="4_4d7sh"]
 [ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://243749__unfa__metronome-1khz-weak-pulse.mp3" id="5_q6r6c"]
-[ext_resource type="PackedScene" path="res://border.tscn" id="8_rj586"]
+[ext_resource type="PackedScene" uid="uid://vfbpfteehog8" path="res://border.tscn" id="8_rj586"]
+[ext_resource type="PackedScene" uid="uid://sulo4envf670" path="res://Endtext.tscn" id="9_hqns4"]
+[ext_resource type="Script" uid="uid://68xv1weo4e5d" path="res://Scripts/seesawtext.gd" id="10_ir8iy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 4.69185
@@ -44,6 +46,16 @@ script = ExtResource("2_0e48y")
 
 [node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
 stream = ExtResource("5_q6r6c")
+
+[node name="Node2D" type="Node2D" parent="Conductor"]
+visible = false
+position = Vector2(960, 560)
+script = ExtResource("10_ir8iy")
+
+[node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("9_hqns4")]
+anchors_preset = 15
+offset_right = 1246.0
+offset_bottom = 260.0
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource("1_q6r6c")

@@ -34,6 +34,9 @@ func _physics_process(_delta):
 		song_position_in_notes = int(floor(song_position / sec_per_note))
 		_report_note()
 	
+	if song_position_in_notes == 328:
+		$Node2D.visible = true
+	
 	if song_position_in_notes == 393:
 		get_tree().quit()
 
