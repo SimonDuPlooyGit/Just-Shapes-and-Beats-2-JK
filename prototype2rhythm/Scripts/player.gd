@@ -11,6 +11,7 @@ var is_dashing = false
 var dash_timer = 0.0
 var taking_damage = false
 var damage_timer = 0
+var current_trail: Trail
 
 signal life_lost(necessary)
 
@@ -54,7 +55,6 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if damage_timer <=0:
 			lose_life()
-			
 
 func start_dash():
 	# Disable collision
@@ -62,6 +62,7 @@ func start_dash():
 	is_dashing = true
 	dash_timer = dash_duration
 	set_sprite_opacity(0.5)
+	make_trail()
 
 func end_dash():
 	# Re-enable collision
@@ -69,6 +70,7 @@ func end_dash():
 	is_dashing = false
 	if damage_timer <= 0:
 		set_sprite_opacity(1)
+	current_trail.stop()
 
 func lose_life():
 	if damage_timer <= 0:
@@ -86,3 +88,9 @@ func set_sprite_opacity(alpha: float):
 	var current_color = $Sprite2D.modulate
 	current_color.a = alpha
 	$Sprite2D.modulate = current_color
+
+func make_trail() -> void:
+	if current_trail:
+		current_trail.stop()
+	current_trail = Trail.create()
+	add_child(current_trail)

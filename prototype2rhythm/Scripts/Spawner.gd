@@ -302,11 +302,11 @@ func spawn_bullet(side, positionH, positionV):
 		bul.setup(Vector2(1920,bul.position.y)-bul.position)
 	elif (side == "top"):
 		bul.position = vertical_positions.get(positionV)
-		bul.position -= Vector2(0,560)
+		bul.position -= Vector2(0,520)
 		bul.setup(Vector2(bul.position.x, 1080)-bul.position)
 	else:
 		bul.position = vertical_positions.get(positionV)
-		bul.position += Vector2(0,560)
+		bul.position += Vector2(0,460)
 		bul.setup(Vector2(bul.position.x, 0)-bul.position)
 	pass
 

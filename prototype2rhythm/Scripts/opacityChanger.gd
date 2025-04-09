@@ -5,8 +5,8 @@ extends CanvasLayer
 @onready var left = $Left
 @onready var right = $Right
 
-var light_up = Color(1,1,1,0.6)
-var light_down = Color(1,1,1,0.25)
+var light_up = Color(1,1,1,0.9)
+var light_down = Color(1,1,1,0.5)
 
 var lit_up = false
 

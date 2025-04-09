@@ -26,6 +26,7 @@ signal measureS(measure)
 func _ready():
 	sec_per_beat = 60.0 / bpm
 	sec_per_note = sec_per_beat / notes_per_beat
+	$ProgressBar.max_value = 328
 
 func _physics_process(_delta):
 	if playing:
@@ -36,6 +37,7 @@ func _physics_process(_delta):
 	
 	if song_position_in_notes == 328:
 		$Node2D.visible = true
+		$ProgressBar.visible = false
 	
 	if song_position_in_notes == 393:
 		get_tree().quit()
@@ -46,7 +48,12 @@ func _report_note():
 		var current_note = song_position_in_notes
 		var current_beat = int(current_note / notes_per_beat) % beats_per_measure + 1
 		var current_measure = int(current_note / (beats_per_measure * notes_per_beat)) + 1
+		
+		var target_value = current_note
+		var tween = create_tween()
+		tween.tween_property($ProgressBar, "value", target_value, sec_per_note)
 
+		
 		# Emit signals
 		emit_signal("noteS", current_note)
 		print("Note: " + str(current_note) + "Beat: " + str(current_beat) + "Measure: " + str(current_measure))
