@@ -18,22 +18,7 @@ func _process(delta):
 		offset = original_offset
 
 var shake_strenghts = {
-	2: 5,
-	6: 5,
-	18: 5,
-	19: 5,
-	20: 5,
-	22: 3,
-	23: 3,
-	24: 3,
-	26: 5,
-	28: 3,
-	30: 5,
 	32: 3,
-	33: 3,
-	34: 5,
-	36: 3,
-	38: 3,
 }
 
 func start_shake(measure):

@@ -9,7 +9,13 @@ var initialQuacks = [117,118,120,122,123,124,126,133,134,136,138,139,140,142,
 func playLaugh(measure):
 		if (measure == 18 || measure == 22):
 			play("Laugh")
+		elif (measure == 32):
+			play("Enraged")
+			
 
 func playQuack(note):
 	if (initialQuacks.has(note)):
 		play("Quack")
+	
+	if (note == 493):
+		play("DropQuack")

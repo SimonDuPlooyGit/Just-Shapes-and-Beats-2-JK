@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpejwnvtdvrh1"]
+[gd_scene load_steps=18 format=3 uid="uid://cpejwnvtdvrh1"]
 
 [ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_p6pjf"]
 [ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="2_m7vvj"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://Music/243749__unfa__metronome-1khz-weak-pulse.mp3" id="7_t5kwq"]
 [ext_resource type="Script" uid="uid://68xv1weo4e5d" path="res://Scripts/seesawtext.gd" id="8_ms3ee"]
 [ext_resource type="PackedScene" uid="uid://sulo4envf670" path="res://Scenes/Endtext.tscn" id="9_ktnig"]
+[ext_resource type="Texture2D" uid="uid://cjip3w3kq1x07" path="res://Sprites/DuckEnraged.png" id="10_dl4b5"]
 [ext_resource type="Texture2D" uid="uid://m66nube3htng" path="res://Sprites/DuckMouthClosed.png" id="10_m7vvj"]
 [ext_resource type="Texture2D" uid="uid://bi401jbeole8n" path="res://Sprites/DuckHalfOpen.png" id="11_kg31f"]
 [ext_resource type="Texture2D" uid="uid://b1met8bqfs6wk" path="res://Sprites/DuckFullyOpen.png" id="11_ncjpd"]
@@ -22,8 +23,22 @@ bg_color = Color(0.6, 1, 0.6, 0.317647)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kg31f"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m7vvj")
+}],
+"loop": false,
+"name": &"DropQuack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_dl4b5")
+}],
+"loop": false,
 "name": &"Enraged",
 "speed": 5.0
 }, {
@@ -31,7 +46,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_m7vvj")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -41,8 +56,38 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_ncjpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ncjpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ncjpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ncjpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ncjpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m7vvj")
 }],
-"loop": true,
+"loop": false,
 "name": &"Laugh",
 "speed": 8.0
 }, {
@@ -119,11 +164,14 @@ unique_name_in_owner = true
 position = Vector2(1289, 373)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_kg31f")
-animation = &"Idle"
+animation = &"DropQuack"
+frame = 1
+frame_progress = 1.0
 centered = false
 script = ExtResource("13_ffsx8")
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="reset_game"]
+[connection signal="measureS" from="Conductor" to="Camera2D" method="start_shake"]
 [connection signal="measureS" from="Conductor" to="Duck" method="playLaugh"]
 [connection signal="noteS" from="Conductor" to="Duck" method="playQuack"]
