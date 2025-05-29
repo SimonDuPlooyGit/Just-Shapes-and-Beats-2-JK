@@ -39,8 +39,8 @@ func _physics_process(_delta):
 		$Node2D.visible = true
 		$ProgressBar.visible = false
 	
-	if song_position_in_notes == 393:
-		get_tree().quit()
+	#if song_position_in_notes == 393:
+		#get_tree().quit()
 
 func _report_note():
 	if song_position_in_notes > last_reported_note:
@@ -61,7 +61,7 @@ func _report_note():
 		# Only emit beat and measure at the start of those cycles
 		if current_note % notes_per_beat == 0:
 			emit_signal("beatS")
-			#$Tick.play()
+			$Tick.play()
 
 		if current_note % total_notes_per_measure == 0:
 			emit_signal("measureS", current_measure)

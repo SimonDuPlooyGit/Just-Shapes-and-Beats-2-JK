@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://day78oj8vivbh"
+path="res://.godot/imported/Chime, Teminite - Duckstep [NCS Release].mp3-f25777c540cb4e9e7070e475d1985ab9.mp3str"
+
+[deps]
+
+source_file="res://Music/Chime, Teminite - Duckstep [NCS Release].mp3"
+dest_files=["res://.godot/imported/Chime, Teminite - Duckstep [NCS Release].mp3-f25777c540cb4e9e7070e475d1985ab9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

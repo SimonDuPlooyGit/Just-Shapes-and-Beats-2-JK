@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqdyejlse8fip"
+path="res://.godot/imported/TOKYO MACHINE - CHEAT CODES [NCS Release].mp3-a75d11f25440db50a63ead2629225109.mp3str"
+
+[deps]
+
+source_file="res://Music/TOKYO MACHINE - CHEAT CODES [NCS Release].mp3"
+dest_files=["res://.godot/imported/TOKYO MACHINE - CHEAT CODES [NCS Release].mp3-a75d11f25440db50a63ead2629225109.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

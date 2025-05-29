@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j8cpjngc0s2y"
+path="res://.godot/imported/Boom Kitty, TOKYO MACHINE, Warriyo - Mortals (TOKYO MACHINE & Boom Kitty Remix) [NCS Release].mp3-d69e7b7e40b51e96bee770a252b359a0.mp3str"
+
+[deps]
+
+source_file="res://Music/Boom Kitty, TOKYO MACHINE, Warriyo - Mortals (TOKYO MACHINE & Boom Kitty Remix) [NCS Release].mp3"
+dest_files=["res://.godot/imported/Boom Kitty, TOKYO MACHINE, Warriyo - Mortals (TOKYO MACHINE & Boom Kitty Remix) [NCS Release].mp3-d69e7b7e40b51e96bee770a252b359a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

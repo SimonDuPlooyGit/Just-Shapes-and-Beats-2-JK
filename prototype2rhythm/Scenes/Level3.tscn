@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://cpejwnvtdvrh1"]
+
+[ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_p6pjf"]
+[ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="2_m7vvj"]
+[ext_resource type="Texture2D" uid="uid://celo8nwgdm2fm" path="res://Sprites/icon.svg" id="3_kg31f"]
+[ext_resource type="Script" uid="uid://bw48yx3t1ou1r" path="res://Scripts/shaking.gd" id="4_ncjpd"]
+[ext_resource type="AudioStream" uid="uid://day78oj8vivbh" path="res://Music/Chime, Teminite - Duckstep [NCS Release].mp3" id="5_p6pjf"]
+[ext_resource type="Script" uid="uid://cg0vj8u7nuqxa" path="res://Scripts/Conductor.gd" id="6_dl4b5"]
+[ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://Music/243749__unfa__metronome-1khz-weak-pulse.mp3" id="7_t5kwq"]
+[ext_resource type="Script" uid="uid://68xv1weo4e5d" path="res://Scripts/seesawtext.gd" id="8_ms3ee"]
+[ext_resource type="PackedScene" uid="uid://sulo4envf670" path="res://Scenes/Endtext.tscn" id="9_ktnig"]
+[ext_resource type="Texture2D" uid="uid://m66nube3htng" path="res://Sprites/DuckMouthClosed.png" id="10_m7vvj"]
+[ext_resource type="Texture2D" uid="uid://bi401jbeole8n" path="res://Sprites/DuckHalfOpen.png" id="11_kg31f"]
+[ext_resource type="Texture2D" uid="uid://b1met8bqfs6wk" path="res://Sprites/DuckFullyOpen.png" id="11_ncjpd"]
+[ext_resource type="Script" uid="uid://c4qtlwf3pwmx4" path="res://Scripts/DuckBrain.gd" id="13_ffsx8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 4.69185
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqns4"]
+bg_color = Color(0.6, 1, 0.6, 0.317647)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kg31f"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Enraged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_m7vvj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ncjpd")
+}],
+"loop": true,
+"name": &"Laugh",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_m7vvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg31f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m7vvj")
+}],
+"loop": false,
+"name": &"Quack",
+"speed": 30.0
+}]
+
+[node name="node_2d" type="Node2D"]
+script = ExtResource("1_p6pjf")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(987, 258)
+scale = Vector2(1, 0.974259)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("2_m7vvj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_kg31f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, -0.599976)
+scale = Vector2(6.76, 6.4)
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("4_ncjpd")
+
+[node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p6pjf")
+script = ExtResource("6_dl4b5")
+bpm = 150
+notes_per_beat = 4
+
+[node name="StartTimer" type="Timer" parent="Conductor"]
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
+stream = ExtResource("7_t5kwq")
+
+[node name="Node2D" type="Node2D" parent="Conductor"]
+visible = false
+position = Vector2(960, 560)
+script = ExtResource("8_ms3ee")
+
+[node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("9_ktnig")]
+offset_right = 1246.0
+offset_bottom = 260.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Conductor"]
+z_index = 1
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 1906.0
+offset_bottom = 44.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqns4")
+show_percentage = false
+
+[node name="Duck" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1289, 373)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_kg31f")
+animation = &"Idle"
+centered = false
+script = ExtResource("13_ffsx8")
+
+[connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
+[connection signal="tree_exited" from="Player" to="." method="reset_game"]
+[connection signal="measureS" from="Conductor" to="Duck" method="playLaugh"]
+[connection signal="noteS" from="Conductor" to="Duck" method="playQuack"]

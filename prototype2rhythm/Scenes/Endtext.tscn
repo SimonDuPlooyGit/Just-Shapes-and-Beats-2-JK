@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://sulo4envf670"]
+
+[node name="Endtext" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 642.0
+offset_top = 47.0
+offset_right = -674.0
+offset_bottom = -723.0
+theme_override_font_sizes/font_size = 50
+text = "Cheat Codes
+By Tokyo Machine
+Game by Simon Du Plooy"
+horizontal_alignment = 1
+vertical_alignment = 1

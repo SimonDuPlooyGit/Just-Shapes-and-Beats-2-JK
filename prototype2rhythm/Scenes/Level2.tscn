@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://sddbj6yjknd7"]
+
+[ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_au75x"]
+[ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="2_62f1r"]
+[ext_resource type="Texture2D" uid="uid://celo8nwgdm2fm" path="res://Sprites/icon.svg" id="3_1je60"]
+[ext_resource type="Script" uid="uid://bw48yx3t1ou1r" path="res://Scripts/shaking.gd" id="4_ycmr1"]
+[ext_resource type="AudioStream" uid="uid://j8cpjngc0s2y" path="res://Music/Boom Kitty, TOKYO MACHINE, Warriyo - Mortals (TOKYO MACHINE & Boom Kitty Remix) [NCS Release].mp3" id="5_au75x"]
+[ext_resource type="Script" uid="uid://cg0vj8u7nuqxa" path="res://Scripts/Conductor.gd" id="6_sgc6j"]
+[ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://Music/243749__unfa__metronome-1khz-weak-pulse.mp3" id="7_xx40l"]
+[ext_resource type="Script" uid="uid://68xv1weo4e5d" path="res://Scripts/seesawtext.gd" id="8_utdxf"]
+[ext_resource type="PackedScene" uid="uid://sulo4envf670" path="res://Scenes/Endtext.tscn" id="9_8wk15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 4.69185
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqns4"]
+bg_color = Color(0.6, 1, 0.6, 0.317647)
+
+[node name="node_2d" type="Node2D"]
+script = ExtResource("1_au75x")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(987, 258)
+scale = Vector2(1, 0.974259)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("2_62f1r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1je60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, -0.599976)
+scale = Vector2(6.76, 6.4)
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("4_ycmr1")
+
+[node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_au75x")
+script = ExtResource("6_sgc6j")
+bpm = 75
+
+[node name="StartTimer" type="Timer" parent="Conductor"]
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
+stream = ExtResource("7_xx40l")
+
+[node name="Node2D" type="Node2D" parent="Conductor"]
+visible = false
+position = Vector2(960, 560)
+script = ExtResource("8_utdxf")
+
+[node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("9_8wk15")]
+offset_right = 1246.0
+offset_bottom = 260.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Conductor"]
+z_index = 1
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 1906.0
+offset_bottom = 44.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqns4")
+show_percentage = false
+
+[connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
+[connection signal="tree_exited" from="Player" to="." method="reset_game"]
+[connection signal="measureS" from="Conductor" to="Camera2D" method="start_shake"]
