@@ -1,5 +1,8 @@
 extends Node
 
+@onready var sprite := $Sprite2D
+@onready var collision_shape := $CollisionShape2D
+
 func _ready() -> void:
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	await get_tree().create_timer(0.6).timeout

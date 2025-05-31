@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://boo2qsryiaqps" path="res://Sprites/waterbeam.png" id="1_macrm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_macrm"]
-size = Vector2(1929, 94)
+size = Vector2(1929, 81)
 
 [node name="WaterBeam" type="Area2D"]
 show_behind_parent = true
 script = ExtResource("1_gnyov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-954.5, 41)
+position = Vector2(-954.5, -3.5)
 shape = SubResource("RectangleShape2D_macrm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(-961, 43)
+position = Vector2(-961, 0.999996)
 scale = Vector2(1, 0.59)
 texture = ExtResource("1_macrm")

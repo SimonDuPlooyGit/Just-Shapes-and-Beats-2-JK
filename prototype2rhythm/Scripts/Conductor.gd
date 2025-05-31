@@ -53,16 +53,17 @@ func _report_note():
 		#tween.tween_property($ProgressBar, "value", target_value, sec_per_note)
 
 		# Emit signals
-		emit_signal("noteS", current_note)
-		print("Note: " + str(current_note) + "Beat: " + str(current_beat) + "Measure: " + str(current_measure))
+
+		if current_note % total_notes_per_measure == 0:
+			emit_signal("measureS", current_measure)
 
 		# Only emit beat and measure at the start of those cycles
 		if current_note % notes_per_beat == 0:
 			emit_signal("beatS", current_beat)
 			$Tick.play()
 
-		if current_note % total_notes_per_measure == 0:
-			emit_signal("measureS", current_measure)
+		emit_signal("noteS", current_note)
+		print("Note: " + str(current_note) + "Beat: " + str(current_beat) + "Measure: " + str(current_measure))
 
 		last_reported_note = current_note
 

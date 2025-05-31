@@ -17,7 +17,18 @@ var initialQuacks = [117,118,120,122,123,124,126,133,134,136,138,139,140,142,
 var buildupTeleportYs = [180,300,420,540,660,900,780,660,540,420,180,300,420,
 540,660,900,780,660,540,420,180,300,420,540]
 
+var buildupBeamYs = []
+
 func _ready() -> void:
+	var y_diff = self.global_position.y - spawn_spot.global_position.y
+	
+	# Adjust each teleport Y value by subtracting the Y difference
+	for y in buildupTeleportYs:
+		buildupBeamYs.append(y - y_diff)
+	
+	# Optional: print to verify
+	print("Adjusted beam Y values: ", buildupBeamYs)
+	
 	teleport_index = 0
 	swoopInBig()
 
@@ -115,9 +126,9 @@ func duckBeatUpdate(beat):
 	
 	#Buildup
 	if (current_measure >= 24 && current_measure <= 29):
+		shootBeam()
 		play("QuackSlower")
 		teleport(1700,buildupTeleportYs[teleport_index],"left")
-		shootBeam()
 		teleport_index += 1
 
 func duckMeasureUpdate(measure):

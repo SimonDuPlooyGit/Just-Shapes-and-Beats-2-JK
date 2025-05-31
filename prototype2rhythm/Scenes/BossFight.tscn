@@ -121,8 +121,6 @@ script = ExtResource("1_d3lxl")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(796, 520)
 scale = Vector2(1, 0.974259)
-collision_layer = 0
-collision_mask = 0
 motion_mode = 1
 script = ExtResource("2_7ekg7")
 
