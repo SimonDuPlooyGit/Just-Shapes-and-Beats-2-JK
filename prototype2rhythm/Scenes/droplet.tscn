@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d14pp5tyu5ykk"]
+
+[ext_resource type="Script" uid="uid://dto2p66dpy0gd" path="res://Scripts/dropletlogic.gd" id="1_jty2x"]
+[ext_resource type="Texture2D" uid="uid://c7lme8nwpk50c" path="res://Sprites/droplet.png" id="1_nvg6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvg6g"]
+size = Vector2(226, 357)
+
+[node name="Droplet" type="Area2D"]
+script = ExtResource("1_jty2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nvg6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_nvg6g")
