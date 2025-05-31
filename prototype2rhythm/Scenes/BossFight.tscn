@@ -151,14 +151,12 @@ stream = ExtResource("7_tn1f5")
 
 [node name="Duck" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1724, 902)
+position = Vector2(2216, 286)
 scale = Vector2(0.3, 0.326)
 sprite_frames = SubResource("SpriteFrames_kg31f")
 animation = &"QuackSlower"
+offset = Vector2(340, 200)
 script = ExtResource("14_xvhne")
-
-[node name="SpawnSpot" type="Node2D" parent="Duck"]
-position = Vector2(-350, -196.319)
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="reset_game"]
