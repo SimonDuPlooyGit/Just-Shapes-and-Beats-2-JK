@@ -21,7 +21,7 @@ var shake_strenghts = {
 	32: 3,
 }
 
-func start_shake(measure):
+func start_shake(note, beat, measure):
 	var strength = shake_strenghts.get(measure)
 	
 	if strength == null:
