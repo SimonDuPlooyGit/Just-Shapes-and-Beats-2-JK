@@ -1,0 +1,363 @@
+[gd_scene load_steps=21 format=3 uid="uid://4674o8o3wdhq"]
+
+[ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="1_j00bl"]
+[ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_jk316"]
+[ext_resource type="Texture2D" uid="uid://celo8nwgdm2fm" path="res://Sprites/icon.svg" id="2_blgjj"]
+[ext_resource type="Script" uid="uid://bw48yx3t1ou1r" path="res://Scripts/shaking.gd" id="3_vn30n"]
+[ext_resource type="Texture2D" uid="uid://copgh7nnnbauj" path="res://Sprites/Chains.png" id="4_74sup"]
+[ext_resource type="AudioStream" uid="uid://j8cpjngc0s2y" path="res://Music/Boom Kitty, TOKYO MACHINE, Warriyo - Mortals (TOKYO MACHINE & Boom Kitty Remix) [NCS Release].mp3" id="4_j00bl"]
+[ext_resource type="Script" uid="uid://cg0vj8u7nuqxa" path="res://Scripts/Conductor.gd" id="5_g8gpx"]
+[ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://Music/243749__unfa__metronome-1khz-weak-pulse.mp3" id="6_u6x8q"]
+[ext_resource type="Script" uid="uid://68xv1weo4e5d" path="res://Scripts/seesawtext.gd" id="7_p1nv1"]
+[ext_resource type="PackedScene" uid="uid://sulo4envf670" path="res://Scenes/Endtext.tscn" id="8_jk316"]
+[ext_resource type="Script" uid="uid://33y8ixxnxhq0" path="res://Scripts/wordspawner.gd" id="10_vn30n"]
+[ext_resource type="Script" uid="uid://d1otuwbobdpwq" path="res://Scripts/slashspawner.gd" id="12_1lwt5"]
+[ext_resource type="Texture2D" uid="uid://b3sde3ail8ouy" path="res://Sprites/branch.png" id="12_g8gpx"]
+[ext_resource type="PackedScene" uid="uid://x65vttegdh7j" path="res://Scenes/samurai.tscn" id="13_p1nv1"]
+[ext_resource type="Script" uid="uid://d174mxsd16yyd" path="res://Scripts/samuraispawner.gd" id="14_6kvpb"]
+[ext_resource type="Script" uid="uid://co1j4nf3tshon" path="res://Scripts/samurailogic.gd" id="14_jk316"]
+[ext_resource type="PackedScene" uid="uid://dx6iq55ofutrc" path="res://Scenes/swordslash.tscn" id="15_jk316"]
+[ext_resource type="Texture2D" uid="uid://dc4iq26yrhd5h" path="res://Sprites/redsquare.png" id="17_yn866"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 4.69185
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awv0y"]
+bg_color = Color(0.6, 1, 0.6, 0.317647)
+
+[node name="node_2d" type="Node2D"]
+script = ExtResource("1_jk316")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 560)
+scale = Vector2(1, 0.974259)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_j00bl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_blgjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, -0.599976)
+scale = Vector2(6.76, 6.4)
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="chains" type="Sprite2D" parent="Player"]
+visible = false
+modulate = Color(1, 1, 1, 0.396078)
+scale = Vector2(0.53, 0.53)
+texture = ExtResource("4_74sup")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("3_vn30n")
+
+[node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_j00bl")
+script = ExtResource("5_g8gpx")
+bpm = 75
+notes_per_beat = 4
+beats_per_measure = 4
+last_note_for_load = 3000
+last_game_note = 3000
+
+[node name="StartTimer" type="Timer" parent="Conductor"]
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
+stream = ExtResource("6_u6x8q")
+
+[node name="Node2D" type="Node2D" parent="Conductor"]
+visible = false
+position = Vector2(960, 560)
+script = ExtResource("7_p1nv1")
+
+[node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("8_jk316")]
+offset_right = 1246.0
+offset_bottom = 260.0
+text = "Duckstep
+By Chime and
+Tokyo Machine"
+
+[node name="ProgressBar" type="ProgressBar" parent="Conductor"]
+z_index = 1
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 1906.0
+offset_bottom = 44.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_awv0y")
+show_percentage = false
+
+[node name="Spawners" type="Node" parent="."]
+
+[node name="WordSpawner" type="Node" parent="Spawners"]
+script = ExtResource("10_vn30n")
+
+[node name="SlashSpawner" type="Node" parent="Spawners"]
+script = ExtResource("12_1lwt5")
+
+[node name="Swordslash" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 160)
+
+[node name="Swordslash2" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 290)
+
+[node name="Swordslash3" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 420)
+
+[node name="Swordslash4" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 550)
+
+[node name="Swordslash5" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 680)
+
+[node name="Swordslash6" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 810)
+
+[node name="Swordslash7" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(182, 868)
+rotation = 0.785397
+
+[node name="Swordslash8" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(273, 808)
+rotation = 0.785397
+
+[node name="Swordslash9" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(391, 758)
+rotation = 0.785397
+
+[node name="Swordslash10" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(459, 639)
+rotation = 0.785397
+
+[node name="Swordslash11" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(527, 548)
+rotation = 0.785397
+
+[node name="Swordslash12" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(683, 503)
+rotation = 0.785397
+
+[node name="Swordslash13" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(850, 503)
+rotation = 0.785397
+
+[node name="Swordslash14" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1059, 533)
+rotation = 0.785397
+
+[node name="Swordslash15" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1266, 534)
+rotation = 0.785397
+
+[node name="Swordslash16" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1384, 468)
+rotation = 0.785397
+
+[node name="Swordslash17" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1657, 379)
+rotation = -2.35619
+
+[node name="Swordslash18" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1602, 468)
+rotation = -2.35619
+
+[node name="Swordslash19" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1513, 560)
+rotation = -2.35619
+
+[node name="Swordslash20" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1302, 565)
+rotation = -2.35619
+
+[node name="Swordslash21" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(1090, 550)
+rotation = -2.35619
+
+[node name="Swordslash22" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(902, 548)
+rotation = -2.35619
+
+[node name="Swordslash23" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(786, 645)
+rotation = -2.35619
+
+[node name="Swordslash24" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
+visible = false
+position = Vector2(671, 758)
+rotation = -2.35619
+
+[node name="SamuraiSpawner" type="Node" parent="Spawners"]
+script = ExtResource("14_6kvpb")
+
+[node name="Branch" type="Sprite2D" parent="."]
+position = Vector2(243, 143)
+scale = Vector2(1.89, 1.842)
+texture = ExtResource("12_g8gpx")
+
+[node name="Branch2" type="Sprite2D" parent="."]
+position = Vector2(1675, 125)
+rotation = 3.14159
+scale = Vector2(1.9, 1.851)
+texture = ExtResource("12_g8gpx")
+
+[node name="Samurai" parent="." instance=ExtResource("13_p1nv1")]
+position = Vector2(2460, 550)
+script = ExtResource("14_jk316")
+
+[node name="SmallSamurai" parent="." instance=ExtResource("13_p1nv1")]
+visible = false
+position = Vector2(1155, 515)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("14_jk316")
+
+[node name="SmallSamurai2" parent="." instance=ExtResource("13_p1nv1")]
+visible = false
+position = Vector2(760, 515)
+scale = Vector2(-0.2, 0.2)
+script = ExtResource("14_jk316")
+
+[node name="SmallSamurai3" parent="." instance=ExtResource("13_p1nv1")]
+visible = false
+position = Vector2(970, 378)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("14_jk316")
+
+[node name="SmallSamurai4" parent="." instance=ExtResource("13_p1nv1")]
+visible = false
+position = Vector2(940, 645)
+scale = Vector2(-0.2, 0.2)
+script = ExtResource("14_jk316")
+
+[node name="Hitzones" type="Node2D" parent="."]
+visible = false
+
+[node name="side" type="Sprite2D" parent="Hitzones"]
+position = Vector2(696.75, 558.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side4" type="Sprite2D" parent="Hitzones"]
+position = Vector2(852.5, 559)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side2" type="Sprite2D" parent="Hitzones"]
+position = Vector2(776.338, 620.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side3" type="Sprite2D" parent="Hitzones"]
+position = Vector2(776, 496.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side5" type="Sprite2D" parent="Hitzones"]
+position = Vector2(1062.25, 558.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side6" type="Sprite2D" parent="Hitzones"]
+position = Vector2(1218, 559)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side7" type="Sprite2D" parent="Hitzones"]
+position = Vector2(1141.84, 620.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side8" type="Sprite2D" parent="Hitzones"]
+position = Vector2(1141.5, 496.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side9" type="Sprite2D" parent="Hitzones"]
+position = Vector2(877.25, 422.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side10" type="Sprite2D" parent="Hitzones"]
+position = Vector2(1033, 423)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side11" type="Sprite2D" parent="Hitzones"]
+position = Vector2(956.838, 484.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side12" type="Sprite2D" parent="Hitzones"]
+position = Vector2(956.5, 360.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side13" type="Sprite2D" parent="Hitzones"]
+position = Vector2(877.25, 690.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side14" type="Sprite2D" parent="Hitzones"]
+position = Vector2(1033, 691)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side15" type="Sprite2D" parent="Hitzones"]
+position = Vector2(956.838, 752.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side16" type="Sprite2D" parent="Hitzones"]
+position = Vector2(956.5, 628.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
+[connection signal="tree_exited" from="Player" to="." method="reset_game"]
+[connection signal="beatS" from="Conductor" to="Spawners/WordSpawner" method="beatUpdate"]
+[connection signal="beatS" from="Conductor" to="Spawners/SlashSpawner" method="update_beat"]
+[connection signal="beatS" from="Conductor" to="Spawners/SamuraiSpawner" method="update_beat"]
+[connection signal="beatS" from="Conductor" to="Samurai" method="update_beat"]
+[connection signal="measureS" from="Conductor" to="Spawners/WordSpawner" method="measureUpdate"]
+[connection signal="measureS" from="Conductor" to="Spawners/SlashSpawner" method="update_measure"]
+[connection signal="measureS" from="Conductor" to="Spawners/SamuraiSpawner" method="update_measure"]
+[connection signal="measureS" from="Conductor" to="Samurai" method="update_measure"]
+[connection signal="noteS" from="Conductor" to="Spawners/WordSpawner" method="noteUpdate"]
+[connection signal="noteS" from="Conductor" to="Spawners/SlashSpawner" method="update_note"]
+[connection signal="noteS" from="Conductor" to="Spawners/SamuraiSpawner" method="update_note"]
+[connection signal="noteS" from="Conductor" to="Samurai" method="update_note"]
+[connection signal="shackle_player" from="Spawners/WordSpawner" to="Player" method="shackle"]

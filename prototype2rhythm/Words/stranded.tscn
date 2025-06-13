@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://d24rjqk6f0yu7"]
+
+[ext_resource type="Script" uid="uid://cdbi727gtve1c" path="res://Scripts/wordsnaking.gd" id="1_5fbl4"]
+[ext_resource type="Texture2D" uid="uid://dfbehu62cmsm3" path="res://Sprites/Leaves/LeafS.png" id="1_b06pb"]
+[ext_resource type="Texture2D" uid="uid://coqibjkblhwmf" path="res://Sprites/Leaves/LeafT.png" id="2_nx8is"]
+[ext_resource type="Texture2D" uid="uid://cpwp1sj2ovfv4" path="res://Sprites/Leaves/LeafR.png" id="3_5fbl4"]
+[ext_resource type="Texture2D" uid="uid://blxcuuek4xynr" path="res://Sprites/Leaves/LeafA.png" id="4_8oigi"]
+[ext_resource type="Texture2D" uid="uid://uka31uvvpuje" path="res://Sprites/Leaves/LeafN.png" id="5_eitvl"]
+[ext_resource type="Texture2D" uid="uid://2jlsewmlefm" path="res://Sprites/Leaves/LeafD.png" id="6_q23pu"]
+[ext_resource type="Texture2D" uid="uid://b77hmv1ny6mmf" path="res://Sprites/Leaves/LeafE.png" id="7_1e8jm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vqwwx"]
+radius = 37.7128
+height = 137.459
+
+[node name="Stranded" type="Node2D"]
+script = ExtResource("1_5fbl4")
+wave_amplitude = 30.0
+wave_frequency = 3.0
+micro_wave_amplitude = 10.0
+move_speed = 400.0
+
+[node name="S" type="Area2D" parent="."]
+position = Vector2(-453, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="S"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_b06pb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="S"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="T" type="Area2D" parent="."]
+position = Vector2(-326, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="T"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nx8is")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="T"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="R" type="Area2D" parent="."]
+position = Vector2(-197, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="R"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5fbl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="A" type="Area2D" parent="."]
+position = Vector2(-66, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="A"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8oigi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="A"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="N" type="Area2D" parent="."]
+position = Vector2(60, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="N"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_eitvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="N"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="D" type="Area2D" parent="."]
+position = Vector2(186, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_q23pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="D"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="E" type="Area2D" parent="."]
+position = Vector2(315, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="E"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_1e8jm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="E"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")
+
+[node name="D2" type="Area2D" parent="."]
+position = Vector2(443, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="D2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_q23pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="D2"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_vqwwx")

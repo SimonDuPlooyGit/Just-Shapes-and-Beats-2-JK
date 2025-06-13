@@ -28,3 +28,6 @@ func start_shake(note, beat, measure):
 		return
 	else:
 		shake_strength = strength
+
+func zoom_in():
+	pass

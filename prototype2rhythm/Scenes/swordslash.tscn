@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx6iq55ofutrc"]
+
+[ext_resource type="Script" uid="uid://coyq743ja6uft" path="res://Scripts/swordslashlogic.gd" id="1_tpyoo"]
+[ext_resource type="Texture2D" uid="uid://d08v27epqm7wd" path="res://Sprites/swordslash.png" id="1_u57kb"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_tpyoo"]
+points = PackedVector2Array(890, -113, 768, -38, 602, 29, 363, 79, -5, 120, -233, 123, -531, 74, -664, 6, -762, -121, -565, 11, -337, 58, -8, 53, 343, 24, 597, -28)
+
+[node name="Swordslash" type="Area2D"]
+script = ExtResource("1_tpyoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_tpyoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u57kb")

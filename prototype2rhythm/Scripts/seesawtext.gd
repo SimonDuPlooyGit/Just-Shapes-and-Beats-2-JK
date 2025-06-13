@@ -7,6 +7,7 @@ func _ready():
 	# Center the label on this node
 	var label = $Endtext
 	label.position = -label.get_size() / 2
+	label.position.y -= 300
 
 func _process(delta):
 	var angle = sin(Time.get_ticks_msec() / 1000.0 * seesaw_speed) * seesaw_range

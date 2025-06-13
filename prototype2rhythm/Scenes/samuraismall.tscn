@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciiqjosaiha1b"]
+
+[ext_resource type="Texture2D" uid="uid://bnf3dtkg1tghy" path="res://Sprites/samurai.png" id="1_ncr2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t08nw"]
+size = Vector2(799, 634)
+
+[node name="SamuraiSmall" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-75.5, 208)
+shape = SubResource("RectangleShape2D_t08nw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ncr2u")

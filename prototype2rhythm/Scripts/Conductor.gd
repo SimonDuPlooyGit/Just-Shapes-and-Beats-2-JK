@@ -3,6 +3,8 @@ extends AudioStreamPlayer2D
 @export var bpm := 1
 @export var notes_per_beat := 1 # n'th notes
 @export var beats_per_measure := 1
+@export var last_note_for_load := 0
+@export var last_game_note := 0
 
 # Derived values
 var sec_per_beat := 60.0 / bpm
@@ -25,7 +27,7 @@ signal measureS(measure)
 func _ready():
 	sec_per_beat = 60.0 / bpm
 	sec_per_note = sec_per_beat / notes_per_beat
-	#$ProgressBar.max_value = 328
+	$ProgressBar.max_value = last_note_for_load
 
 func _physics_process(_delta):
 	if playing:
@@ -34,12 +36,12 @@ func _physics_process(_delta):
 		song_position_in_notes = int(floor(song_position / sec_per_note))
 		_report_note()
 	
-	#if song_position_in_notes == 328:
-		#$Node2D.visible = true
-		#$ProgressBar.visible = false
+	if song_position_in_notes == last_note_for_load:
+		$Node2D.visible = true
+		$ProgressBar.visible = false
 	
-	#if song_position_in_notes == 393:
-		#get_tree().quit()
+	if song_position_in_notes == last_game_note:
+		get_tree().quit()
 
 func _report_note():
 	if song_position_in_notes > last_reported_note:
@@ -49,8 +51,8 @@ func _report_note():
 		var current_measure = int(current_note / (beats_per_measure * notes_per_beat)) + 1
 		
 		var target_value = current_note
-		#var tween = create_tween()
-		#tween.tween_property($ProgressBar, "value", target_value, sec_per_note)
+		var tween = create_tween()
+		tween.tween_property($ProgressBar, "value", target_value, sec_per_note)
 
 		# Emit signals
 

@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 				#body.queue_free()
 				body.lose_life()
 				has_damaged_player = true
-				pass
 
 	if timer >= sec_per_note * 8 and timer < sec_per_note * 12:
 		# Activate: opaque and collidable

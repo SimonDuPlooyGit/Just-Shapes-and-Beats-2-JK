@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://dto2p66dpy0gd" path="res://Scripts/dropletlogic.gd" id="1_jty2x"]
 [ext_resource type="Texture2D" uid="uid://c7lme8nwpk50c" path="res://Sprites/droplet.png" id="1_nvg6g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvg6g"]
-size = Vector2(226, 357)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_jty2x"]
+points = PackedVector2Array(1.334, 123.937, -49.2088, 98.8634, -73.2373, 47.8209, -41.7516, -29.1905, -0.323142, -125.902, 41.9339, -27.3995, 70.9339, 42.4481, 51.8768, 94.386)
 
 [node name="Droplet" type="Area2D"]
+scale = Vector2(0.805, 0.805)
 script = ExtResource("1_jty2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,4 +15,5 @@ texture = ExtResource("1_nvg6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -0.5)
-shape = SubResource("RectangleShape2D_nvg6g")
+scale = Vector2(1.49925, 1.38723)
+shape = SubResource("ConvexPolygonShape2D_jty2x")

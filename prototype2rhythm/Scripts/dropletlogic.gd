@@ -7,6 +7,11 @@ var telegraph_time := 0.0 # Time in seconds before it becomes active
 var input_dir = ""
 var direction = 0
 @export var speed = 600
+var velocity := Vector2.ZERO
+var overlap_body
+var has_damaged_player := false
+
+var is_active := false
 
 func _ready() -> void:
 	# Initial state: invisible and harmless
@@ -19,15 +24,43 @@ func _ready() -> void:
 	# Activate: full opacity and enable collision
 	modulate.a = 1.0
 	collision_shape.disabled = false
+	is_active = true
+	
+	#Rotate if shootdroplet was used
+	if velocity != Vector2.ZERO:
+		rotation = velocity.angle() - deg_to_rad(90)
 	
 	if (input_dir == "down"):
 		direction = 1
-	else:
+	elif (input_dir == "up"):
 		direction = -1
+		self.global_rotation = deg_to_rad(180)
+	elif (input_dir == "left"):
+		direction = -1
+		self.global_rotation = deg_to_rad(90)
+	elif (input_dir == "right"):
+		direction = 1
+		self.global_rotation = deg_to_rad(-90)
 
 func _process(delta: float) -> void:
 	
-	position.y += speed * direction * delta
+	#Collision with player to lose lives
+	if has_overlapping_bodies() and not has_damaged_player:
+		overlap_body = self.get_overlapping_bodies()
+		for body in overlap_body:
+			if body.name == "Player":
+				#body.queue_free()
+				body.lose_life()
+				has_damaged_player = true
+				pass
+	
+	#Move in the velocity direction if shoot was used
+	if velocity != Vector2.ZERO and is_active: position += velocity.normalized() * speed * delta
+	
+	if (input_dir == "down" or input_dir == "up"):
+		position.y += speed * direction * delta
+	elif (input_dir == "left" or input_dir == "right"):
+		position.x += speed * direction * delta
 	
 	if (self.position.x > 1920 || self.position.x < 0):
 		queue_free()

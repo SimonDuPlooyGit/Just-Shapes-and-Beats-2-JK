@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcornhbyugycj"]
+
+[ext_resource type="Texture2D" uid="uid://coqibjkblhwmf" path="res://Sprites/Leaves/LeafT.png" id="1_b046h"]
+[ext_resource type="Script" uid="uid://cdbi727gtve1c" path="res://Scripts/wordsnaking.gd" id="1_rshnb"]
+[ext_resource type="Texture2D" uid="uid://cgvl4tu4mg4ld" path="res://Sprites/Leaves/LeafO.png" id="2_rshnb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0avc"]
+radius = 37.7128
+height = 137.459
+
+[node name="To" type="Node2D"]
+script = ExtResource("1_rshnb")
+wave_amplitude = 30.0
+wave_frequency = 3.0
+micro_wave_amplitude = 10.0
+move_speed = 400.0
+
+[node name="T" type="Area2D" parent="."]
+position = Vector2(-65, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="T"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_b046h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="T"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_x0avc")
+
+[node name="O" type="Area2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="O"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rshnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="O"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_x0avc")

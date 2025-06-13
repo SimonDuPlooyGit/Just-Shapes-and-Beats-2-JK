@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpejwnvtdvrh1"]
+[gd_scene load_steps=20 format=3 uid="uid://cpejwnvtdvrh1"]
 
 [ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_d3lxl"]
 [ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="2_7ekg7"]
@@ -7,14 +7,20 @@
 [ext_resource type="AudioStream" uid="uid://day78oj8vivbh" path="res://Music/Chime, Teminite - Duckstep [NCS Release].mp3" id="5_xeqf3"]
 [ext_resource type="Script" uid="uid://cg0vj8u7nuqxa" path="res://Scripts/Conductor.gd" id="6_b7igg"]
 [ext_resource type="AudioStream" uid="uid://diy7atojblrft" path="res://Music/243749__unfa__metronome-1khz-weak-pulse.mp3" id="7_tn1f5"]
+[ext_resource type="Script" uid="uid://68xv1weo4e5d" path="res://Scripts/seesawtext.gd" id="8_d3lxl"]
+[ext_resource type="PackedScene" uid="uid://sulo4envf670" path="res://Scenes/Endtext.tscn" id="9_7ekg7"]
 [ext_resource type="Texture2D" uid="uid://bi401jbeole8n" path="res://Sprites/DuckHalfOpen.png" id="10_h6mcp"]
 [ext_resource type="Texture2D" uid="uid://m66nube3htng" path="res://Sprites/DuckMouthClosed.png" id="11_ifd66"]
 [ext_resource type="Texture2D" uid="uid://cjip3w3kq1x07" path="res://Sprites/DuckEnraged.png" id="12_c2d8w"]
 [ext_resource type="Texture2D" uid="uid://b1met8bqfs6wk" path="res://Sprites/DuckFullyOpen.png" id="13_ksalt"]
 [ext_resource type="Script" uid="uid://c4qtlwf3pwmx4" path="res://Scripts/DuckBrain.gd" id="14_xvhne"]
+[ext_resource type="Script" uid="uid://bbninnkv30233" path="res://Scripts/duckcollider.gd" id="15_7ekg7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 4.69185
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awv0y"]
+bg_color = Color(0.6, 1, 0.6, 0.317647)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kg31f"]
 animations = [{
@@ -115,12 +121,17 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_d3lxl"]
+points = PackedVector2Array(-73.333, -101.227, -50, -226.994, 183.333, -346.626, 843.333, -64.4171, 976.667, 125.767, 996.667, 404.908, 766.667, 628.834, 663.333, 687.117, 406.667, 717.792, 0, 696.319, -150, 619.632, -210, 512.27, -200, 346.626, -100, 193.252, -323.333, 58.2822, -370, -64.4171)
+
 [node name="node_2d" type="Node2D"]
 script = ExtResource("1_d3lxl")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(459, 534)
 scale = Vector2(1, 0.974259)
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("2_7ekg7")
 
@@ -143,20 +154,53 @@ script = ExtResource("6_b7igg")
 bpm = 150
 notes_per_beat = 4
 beats_per_measure = 4
+last_note_for_load = 3000
+last_game_note = 3000
 
 [node name="StartTimer" type="Timer" parent="Conductor"]
 
 [node name="Tick" type="AudioStreamPlayer2D" parent="Conductor"]
 stream = ExtResource("7_tn1f5")
 
+[node name="Node2D" type="Node2D" parent="Conductor"]
+visible = false
+position = Vector2(960, 560)
+script = ExtResource("8_d3lxl")
+
+[node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("9_7ekg7")]
+offset_right = 1246.0
+offset_bottom = 260.0
+text = "Duckstep
+By Chime and
+Tokyo Machine"
+
+[node name="ProgressBar" type="ProgressBar" parent="Conductor"]
+z_index = 1
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 1906.0
+offset_bottom = 44.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_awv0y")
+show_percentage = false
+
 [node name="Duck" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(2216, 286)
+position = Vector2(1589, 468)
 scale = Vector2(0.3, 0.326)
 sprite_frames = SubResource("SpriteFrames_kg31f")
 animation = &"QuackSlower"
 offset = Vector2(340, 200)
 script = ExtResource("14_xvhne")
+angle_offset = 180
+
+[node name="StreamSpawn" type="Node2D" parent="Duck"]
+show_behind_parent = true
+
+[node name="Area2D" type="Area2D" parent="Duck"]
+script = ExtResource("15_7ekg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Duck/Area2D"]
+shape = SubResource("ConvexPolygonShape2D_d3lxl")
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="reset_game"]

@@ -12,6 +12,10 @@ var dash_timer = 0.0
 var taking_damage = false
 var damage_timer = 0
 var current_trail: Trail
+var shackled = false
+var initial_speed = speed
+
+@onready var shackles = $chains
 
 signal life_lost(necessary)
 
@@ -89,8 +93,15 @@ func set_sprite_opacity(alpha: float):
 	current_color.a = alpha
 	$Sprite2D.modulate = current_color
 
-func make_trail() -> void:
+func make_trail():
 	if current_trail:
 		current_trail.stop()
 	current_trail = Trail.create()
 	add_child(current_trail)
+
+func shackle():
+	if shackled == false:
+		shackled = true
+		speed = 0
+		self.global_position = Vector2(960,560)
+		shackles.visible = true

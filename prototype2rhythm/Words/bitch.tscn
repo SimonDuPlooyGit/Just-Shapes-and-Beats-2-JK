@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://cndrv1us86rat"]
+
+[ext_resource type="Texture2D" uid="uid://c1tw1o0nl1k7g" path="res://Sprites/Leaves/LeafB.png" id="1_4cbop"]
+[ext_resource type="Script" uid="uid://6xev5mnqs4e" path="res://Words/bitchdisappear.gd" id="1_poc1g"]
+[ext_resource type="Texture2D" uid="uid://ctiiqeabioh1o" path="res://Sprites/Leaves/LeafI.png" id="2_poc1g"]
+[ext_resource type="Texture2D" uid="uid://coqibjkblhwmf" path="res://Sprites/Leaves/LeafT.png" id="3_ob62s"]
+[ext_resource type="Texture2D" uid="uid://vdvy01e487ik" path="res://Sprites/Leaves/LeafC.png" id="4_dswe0"]
+[ext_resource type="Texture2D" uid="uid://bnyklrstud8u" path="res://Sprites/Leaves/LeafH.png" id="5_e0t4v"]
+[ext_resource type="Texture2D" uid="uid://dpcub1el6cqer" path="res://Sprites/Leaves/Leaf!.png" id="6_7dg35"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4exo3"]
+radius = 37.7128
+height = 137.459
+
+[node name="Bitch" type="Node2D"]
+script = ExtResource("1_poc1g")
+
+[node name="B" type="Area2D" parent="."]
+position = Vector2(-333, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="B"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4cbop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_4exo3")
+
+[node name="I" type="Area2D" parent="."]
+position = Vector2(-201, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="I"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_poc1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="I"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_4exo3")
+
+[node name="T" type="Area2D" parent="."]
+position = Vector2(-71, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="T"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ob62s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="T"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_4exo3")
+
+[node name="C" type="Area2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="C"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_dswe0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="C"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_4exo3")
+
+[node name="H" type="Area2D" parent="."]
+position = Vector2(195, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="H"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_e0t4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="H"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_4exo3")
+
+[node name="!" type="Area2D" parent="."]
+position = Vector2(324, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="!"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_7dg35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="!"]
+position = Vector2(0, 6)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_4exo3")
