@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7srxlo6rfwvb"
+path="res://.godot/imported/Chime - From Fairies To Fire VIP.mp3-63dced9a1236fdf11a0369f550664908.mp3str"
+
+[deps]
+
+source_file="res://Music/Chime - From Fairies To Fire VIP.mp3"
+dest_files=["res://.godot/imported/Chime - From Fairies To Fire VIP.mp3-63dced9a1236fdf11a0369f550664908.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

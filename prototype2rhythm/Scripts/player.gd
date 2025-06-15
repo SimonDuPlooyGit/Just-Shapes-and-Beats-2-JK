@@ -105,3 +105,9 @@ func shackle():
 		speed = 0
 		self.global_position = Vector2(960,560)
 		shackles.visible = true
+
+func unshackle():
+	if shackled == true:
+		shackled = false
+		speed = initial_speed
+		shackles.visible = false

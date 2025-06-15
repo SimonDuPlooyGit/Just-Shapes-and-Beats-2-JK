@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://djtmeppted4ko"]
+[gd_scene load_steps=8 format=3 uid="uid://djtmeppted4ko"]
 
 [ext_resource type="Texture2D" uid="uid://2jlsewmlefm" path="res://Sprites/Leaves/LeafD.png" id="1_nrskv"]
 [ext_resource type="Script" uid="uid://cdbi727gtve1c" path="res://Scripts/wordsnaking.gd" id="1_unms6"]
+[ext_resource type="Script" uid="uid://dtedwg7iukpj0" path="res://Scripts/letterCollisions.gd" id="2_dfrfo"]
 [ext_resource type="Texture2D" uid="uid://cpwp1sj2ovfv4" path="res://Sprites/Leaves/LeafR.png" id="2_unms6"]
 [ext_resource type="Texture2D" uid="uid://ctiiqeabioh1o" path="res://Sprites/Leaves/LeafI.png" id="3_dfrfo"]
 [ext_resource type="Texture2D" uid="uid://b77hmv1ny6mmf" path="res://Sprites/Leaves/LeafE.png" id="4_t2mry"]
@@ -19,6 +20,7 @@ move_speed = 400.0
 
 [node name="D" type="Area2D" parent="."]
 position = Vector2(-256, 0)
+script = ExtResource("2_dfrfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="D"]
 scale = Vector2(0.5, 0.5)
@@ -31,6 +33,7 @@ shape = SubResource("CapsuleShape2D_ahbnu")
 
 [node name="R" type="Area2D" parent="."]
 position = Vector2(-128, 0)
+script = ExtResource("2_dfrfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="R"]
 scale = Vector2(0.5, 0.5)
@@ -42,6 +45,7 @@ rotation = 1.0472
 shape = SubResource("CapsuleShape2D_ahbnu")
 
 [node name="I" type="Area2D" parent="."]
+script = ExtResource("2_dfrfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="I"]
 scale = Vector2(0.5, 0.5)
@@ -54,6 +58,7 @@ shape = SubResource("CapsuleShape2D_ahbnu")
 
 [node name="E" type="Area2D" parent="."]
 position = Vector2(127, 0)
+script = ExtResource("2_dfrfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="E"]
 scale = Vector2(0.5, 0.5)
@@ -66,6 +71,7 @@ shape = SubResource("CapsuleShape2D_ahbnu")
 
 [node name="D2" type="Area2D" parent="."]
 position = Vector2(255, 0)
+script = ExtResource("2_dfrfo")
 
 [node name="Sprite2D" type="Sprite2D" parent="D2"]
 scale = Vector2(0.5, 0.5)

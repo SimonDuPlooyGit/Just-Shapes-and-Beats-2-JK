@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://4674o8o3wdhq"]
+[gd_scene load_steps=23 format=3 uid="uid://4674o8o3wdhq"]
 
 [ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="1_j00bl"]
 [ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_jk316"]
@@ -17,7 +17,9 @@
 [ext_resource type="Script" uid="uid://d174mxsd16yyd" path="res://Scripts/samuraispawner.gd" id="14_6kvpb"]
 [ext_resource type="Script" uid="uid://co1j4nf3tshon" path="res://Scripts/samurailogic.gd" id="14_jk316"]
 [ext_resource type="PackedScene" uid="uid://dx6iq55ofutrc" path="res://Scenes/swordslash.tscn" id="15_jk316"]
+[ext_resource type="Script" uid="uid://b2x6sb16upxty" path="res://Scripts/shurikenspawner.gd" id="16_ba466"]
 [ext_resource type="Texture2D" uid="uid://dc4iq26yrhd5h" path="res://Sprites/redsquare.png" id="17_yn866"]
+[ext_resource type="Texture2D" uid="uid://dideaco3spmx3" path="res://Sprites/Shuriken.png" id="19_grdfb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 4.69185
@@ -32,8 +34,6 @@ script = ExtResource("1_jk316")
 unique_name_in_owner = true
 position = Vector2(960, 560)
 scale = Vector2(1, 0.974259)
-collision_layer = 0
-collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_j00bl")
 
@@ -102,119 +102,237 @@ script = ExtResource("12_1lwt5")
 [node name="Swordslash" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 160)
+collision_layer = 2
 
 [node name="Swordslash2" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 290)
+collision_layer = 2
 
 [node name="Swordslash3" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 420)
+collision_layer = 2
 
 [node name="Swordslash4" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 550)
+collision_layer = 2
 
 [node name="Swordslash5" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 680)
+collision_layer = 2
 
 [node name="Swordslash6" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 810)
+collision_layer = 2
 
 [node name="Swordslash7" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(182, 868)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash8" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(273, 808)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash9" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(391, 758)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash10" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(459, 639)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash11" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(527, 548)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash12" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(683, 503)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash13" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(850, 503)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash14" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1059, 533)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash15" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1266, 534)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash16" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1384, 468)
 rotation = 0.785397
+collision_layer = 2
 
 [node name="Swordslash17" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1657, 379)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash18" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1602, 468)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash19" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1513, 560)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash20" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1302, 565)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash21" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(1090, 550)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash22" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(902, 548)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash23" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(786, 645)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="Swordslash24" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
 position = Vector2(671, 758)
 rotation = -2.35619
+collision_layer = 2
 
 [node name="SamuraiSpawner" type="Node" parent="Spawners"]
 script = ExtResource("14_6kvpb")
+
+[node name="Hitzones" type="Node2D" parent="Spawners/SamuraiSpawner"]
+visible = false
+
+[node name="side" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(696.75, 558.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side4" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(852.5, 559)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side2" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(776.338, 620.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side3" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(776, 496.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side5" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(1062.25, 558.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side6" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(1218, 559)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side7" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(1141.84, 620.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side8" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(1141.5, 496.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side9" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(877.25, 422.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side10" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(1033, 423)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side11" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(956.838, 484.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side12" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(956.5, 360.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side13" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(877.25, 690.5)
+scale = Vector2(0.00750003, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side14" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(1033, 691)
+scale = Vector2(0.00833339, 0.215)
+texture = ExtResource("17_yn866")
+
+[node name="side15" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(956.838, 752.891)
+rotation = 1.5708
+scale = Vector2(0.00713734, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="side16" type="Sprite2D" parent="Spawners/SamuraiSpawner/Hitzones"]
+position = Vector2(956.5, 628.257)
+rotation = 1.5708
+scale = Vector2(0.00713731, 0.262795)
+texture = ExtResource("17_yn866")
+
+[node name="ShurikenSpawner" type="Node" parent="Spawners"]
+script = ExtResource("16_ba466")
 
 [node name="Branch" type="Sprite2D" parent="."]
 position = Vector2(243, 143)
@@ -255,96 +373,9 @@ position = Vector2(940, 645)
 scale = Vector2(-0.2, 0.2)
 script = ExtResource("14_jk316")
 
-[node name="Hitzones" type="Node2D" parent="."]
-visible = false
-
-[node name="side" type="Sprite2D" parent="Hitzones"]
-position = Vector2(696.75, 558.5)
-scale = Vector2(0.00750003, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side4" type="Sprite2D" parent="Hitzones"]
-position = Vector2(852.5, 559)
-scale = Vector2(0.00833339, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side2" type="Sprite2D" parent="Hitzones"]
-position = Vector2(776.338, 620.891)
-rotation = 1.5708
-scale = Vector2(0.00713734, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side3" type="Sprite2D" parent="Hitzones"]
-position = Vector2(776, 496.257)
-rotation = 1.5708
-scale = Vector2(0.00713731, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side5" type="Sprite2D" parent="Hitzones"]
-position = Vector2(1062.25, 558.5)
-scale = Vector2(0.00750003, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side6" type="Sprite2D" parent="Hitzones"]
-position = Vector2(1218, 559)
-scale = Vector2(0.00833339, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side7" type="Sprite2D" parent="Hitzones"]
-position = Vector2(1141.84, 620.891)
-rotation = 1.5708
-scale = Vector2(0.00713734, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side8" type="Sprite2D" parent="Hitzones"]
-position = Vector2(1141.5, 496.257)
-rotation = 1.5708
-scale = Vector2(0.00713731, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side9" type="Sprite2D" parent="Hitzones"]
-position = Vector2(877.25, 422.5)
-scale = Vector2(0.00750003, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side10" type="Sprite2D" parent="Hitzones"]
-position = Vector2(1033, 423)
-scale = Vector2(0.00833339, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side11" type="Sprite2D" parent="Hitzones"]
-position = Vector2(956.838, 484.891)
-rotation = 1.5708
-scale = Vector2(0.00713734, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side12" type="Sprite2D" parent="Hitzones"]
-position = Vector2(956.5, 360.257)
-rotation = 1.5708
-scale = Vector2(0.00713731, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side13" type="Sprite2D" parent="Hitzones"]
-position = Vector2(877.25, 690.5)
-scale = Vector2(0.00750003, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side14" type="Sprite2D" parent="Hitzones"]
-position = Vector2(1033, 691)
-scale = Vector2(0.00833339, 0.215)
-texture = ExtResource("17_yn866")
-
-[node name="side15" type="Sprite2D" parent="Hitzones"]
-position = Vector2(956.838, 752.891)
-rotation = 1.5708
-scale = Vector2(0.00713734, 0.262795)
-texture = ExtResource("17_yn866")
-
-[node name="side16" type="Sprite2D" parent="Hitzones"]
-position = Vector2(956.5, 628.257)
-rotation = 1.5708
-scale = Vector2(0.00713731, 0.262795)
-texture = ExtResource("17_yn866")
+[node name="Shuriken" type="Sprite2D" parent="."]
+position = Vector2(2206, 162)
+texture = ExtResource("19_grdfb")
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="reset_game"]
@@ -359,5 +390,7 @@ texture = ExtResource("17_yn866")
 [connection signal="noteS" from="Conductor" to="Spawners/WordSpawner" method="noteUpdate"]
 [connection signal="noteS" from="Conductor" to="Spawners/SlashSpawner" method="update_note"]
 [connection signal="noteS" from="Conductor" to="Spawners/SamuraiSpawner" method="update_note"]
+[connection signal="noteS" from="Conductor" to="Spawners/ShurikenSpawner" method="update_note"]
 [connection signal="noteS" from="Conductor" to="Samurai" method="update_note"]
 [connection signal="shackle_player" from="Spawners/WordSpawner" to="Player" method="shackle"]
+[connection signal="unshackle_player" from="Spawners/WordSpawner" to="Player" method="unshackle"]

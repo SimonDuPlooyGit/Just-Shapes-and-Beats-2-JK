@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d24rjqk6f0yu7"]
+[gd_scene load_steps=11 format=3 uid="uid://d24rjqk6f0yu7"]
 
 [ext_resource type="Script" uid="uid://cdbi727gtve1c" path="res://Scripts/wordsnaking.gd" id="1_5fbl4"]
 [ext_resource type="Texture2D" uid="uid://dfbehu62cmsm3" path="res://Sprites/Leaves/LeafS.png" id="1_b06pb"]
+[ext_resource type="Script" uid="uid://dtedwg7iukpj0" path="res://Scripts/letterCollisions.gd" id="2_8oigi"]
 [ext_resource type="Texture2D" uid="uid://coqibjkblhwmf" path="res://Sprites/Leaves/LeafT.png" id="2_nx8is"]
 [ext_resource type="Texture2D" uid="uid://cpwp1sj2ovfv4" path="res://Sprites/Leaves/LeafR.png" id="3_5fbl4"]
 [ext_resource type="Texture2D" uid="uid://blxcuuek4xynr" path="res://Sprites/Leaves/LeafA.png" id="4_8oigi"]
@@ -22,6 +23,7 @@ move_speed = 400.0
 
 [node name="S" type="Area2D" parent="."]
 position = Vector2(-453, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="S"]
 scale = Vector2(0.5, 0.5)
@@ -34,6 +36,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="T" type="Area2D" parent="."]
 position = Vector2(-326, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="T"]
 scale = Vector2(0.5, 0.5)
@@ -46,6 +49,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="R" type="Area2D" parent="."]
 position = Vector2(-197, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="R"]
 scale = Vector2(0.5, 0.5)
@@ -58,6 +62,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="A" type="Area2D" parent="."]
 position = Vector2(-66, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="A"]
 scale = Vector2(0.5, 0.5)
@@ -70,6 +75,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="N" type="Area2D" parent="."]
 position = Vector2(60, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="N"]
 scale = Vector2(0.5, 0.5)
@@ -82,6 +88,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="D" type="Area2D" parent="."]
 position = Vector2(186, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="D"]
 scale = Vector2(0.5, 0.5)
@@ -94,6 +101,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="E" type="Area2D" parent="."]
 position = Vector2(315, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="E"]
 scale = Vector2(0.5, 0.5)
@@ -106,6 +114,7 @@ shape = SubResource("CapsuleShape2D_vqwwx")
 
 [node name="D2" type="Area2D" parent="."]
 position = Vector2(443, 0)
+script = ExtResource("2_8oigi")
 
 [node name="Sprite2D" type="Sprite2D" parent="D2"]
 scale = Vector2(0.5, 0.5)

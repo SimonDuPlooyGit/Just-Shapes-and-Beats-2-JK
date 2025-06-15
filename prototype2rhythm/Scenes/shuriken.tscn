@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://120lvegcfwtu"]
+
+[ext_resource type="Script" uid="uid://i6uro4u0po28" path="res://Scripts/shurikenlogic.gd" id="1_bt8nw"]
+[ext_resource type="Texture2D" uid="uid://dideaco3spmx3" path="res://Sprites/Shuriken.png" id="2_uycbm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tu8ef"]
+radius = 61.0328
+
+[node name="Shuriken" type="Area2D"]
+script = ExtResource("1_bt8nw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uycbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tu8ef")

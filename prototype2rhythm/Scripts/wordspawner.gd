@@ -24,6 +24,7 @@ var TOMORROW = preload("res://Words/tomorrow.tscn")
 var BITCH = preload("res://Words/bitch.tscn")
 
 signal shackle_player()
+signal unshackle_player()
 
 #Song variables
 var bpm := 75
@@ -142,6 +143,9 @@ func spawnWord(funcName):
 #Updating current_measure with the measureS from conductor
 func measureUpdate(measure):
 	current_measure = measure
+	
+	if current_measure == 21:
+		emit_signal("unshackle_player")
 
 #Updating current_beat with the beatS from conductor
 func beatUpdate(beat):

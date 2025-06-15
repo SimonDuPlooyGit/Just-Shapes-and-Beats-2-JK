@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://488gqfsomdfy"]
+[gd_scene load_steps=5 format=3 uid="uid://488gqfsomdfy"]
 
 [ext_resource type="Texture2D" uid="uid://blxcuuek4xynr" path="res://Sprites/Leaves/LeafA.png" id="1_6ldpb"]
 [ext_resource type="Script" uid="uid://cdbi727gtve1c" path="res://Scripts/wordsnaking.gd" id="1_88shk"]
+[ext_resource type="Script" uid="uid://dtedwg7iukpj0" path="res://Scripts/letterCollisions.gd" id="2_slymc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88shk"]
 radius = 37.7128
@@ -15,6 +16,7 @@ micro_wave_amplitude = 10.0
 move_speed = 400.0
 
 [node name="E" type="Area2D" parent="."]
+script = ExtResource("2_slymc")
 
 [node name="Sprite2D" type="Sprite2D" parent="E"]
 scale = Vector2(0.5, 0.5)

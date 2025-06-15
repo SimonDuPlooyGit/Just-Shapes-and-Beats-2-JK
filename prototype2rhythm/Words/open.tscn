@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjvsnpri27ga1"]
+[gd_scene load_steps=9 format=3 uid="uid://cjvsnpri27ga1"]
 
 [ext_resource type="Texture2D" uid="uid://cgvl4tu4mg4ld" path="res://Sprites/Leaves/LeafO.png" id="1_5m0qy"]
 [ext_resource type="Script" uid="uid://cdbi727gtve1c" path="res://Scripts/wordsnaking.gd" id="1_g6buh"]
+[ext_resource type="Script" uid="uid://dtedwg7iukpj0" path="res://Scripts/letterCollisions.gd" id="2_7exve"]
 [ext_resource type="Texture2D" uid="uid://l17i53joiaxx" path="res://Sprites/Leaves/LeafP.png" id="2_g6buh"]
 [ext_resource type="Texture2D" uid="uid://b77hmv1ny6mmf" path="res://Sprites/Leaves/LeafE.png" id="3_7exve"]
 [ext_resource type="Texture2D" uid="uid://uka31uvvpuje" path="res://Sprites/Leaves/LeafN.png" id="4_bq0mi"]
@@ -23,6 +24,7 @@ move_speed = 400.0
 
 [node name="O" type="Area2D" parent="."]
 position = Vector2(-196, 0)
+script = ExtResource("2_7exve")
 
 [node name="Sprite2D" type="Sprite2D" parent="O"]
 scale = Vector2(0.5, 0.5)
@@ -35,6 +37,7 @@ shape = SubResource("CapsuleShape2D_k6y4t")
 
 [node name="P" type="Area2D" parent="."]
 position = Vector2(-68, 0)
+script = ExtResource("2_7exve")
 
 [node name="Sprite2D" type="Sprite2D" parent="P"]
 scale = Vector2(0.5, 0.5)
@@ -47,6 +50,7 @@ shape = SubResource("CapsuleShape2D_k6y4t")
 
 [node name="E" type="Area2D" parent="."]
 position = Vector2(64, 0)
+script = ExtResource("2_7exve")
 
 [node name="Sprite2D" type="Sprite2D" parent="E"]
 scale = Vector2(0.5, 0.5)
@@ -59,6 +63,7 @@ shape = SubResource("CapsuleShape2D_k6y4t")
 
 [node name="N" type="Area2D" parent="."]
 position = Vector2(193, 0)
+script = ExtResource("2_7exve")
 
 [node name="Sprite2D" type="Sprite2D" parent="N"]
 scale = Vector2(0.5, 0.5)
