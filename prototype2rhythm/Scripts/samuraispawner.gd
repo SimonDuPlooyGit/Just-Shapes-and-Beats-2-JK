@@ -17,7 +17,7 @@ var spawning = false
 
 var smallsamurai = preload("res://Scenes/samuraismall.tscn")
 @onready var hitzones = $Hitzones
-@onready var player = get_node("/root/node_2d/Player")
+@onready var player = get_node("/root/SamuraiLevel/Player")
 
 
 func update_measure(measure):

@@ -14,6 +14,7 @@ radius = 37.7128
 height = 137.459
 
 [node name="Emotion" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_4nk56")
 wave_amplitude = 30.0
 wave_frequency = 3.0

@@ -79,7 +79,7 @@ func end_dash():
 func lose_life():
 	if damage_timer <= 0:
 		lives -= 1
-		emit_signal("life_lost",22)
+		emit_signal("life_lost",1)
 		damage_timer = invince_time
 	if (lives == 2):
 		$Sprite2D.modulate = Color("#FFFF00")

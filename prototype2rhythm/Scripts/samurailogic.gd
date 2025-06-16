@@ -28,7 +28,7 @@ func move():
 		tween.tween_property(self, "global_position:x", 2460, sec_per_beat*2)
 
 func slice():
-	#emit_signal("slicing")
+	emit_signal("slicing")
 	pass
 
 func move_up():

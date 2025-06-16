@@ -124,7 +124,7 @@ animations = [{
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_d3lxl"]
 points = PackedVector2Array(-73.333, -101.227, -50, -226.994, 183.333, -346.626, 843.333, -64.4171, 976.667, 125.767, 996.667, 404.908, 766.667, 628.834, 663.333, 687.117, 406.667, 717.792, 0, 696.319, -150, 619.632, -210, 512.27, -200, 346.626, -100, 193.252, -323.333, 58.2822, -370, -64.4171)
 
-[node name="node_2d" type="Node2D"]
+[node name="DuckLevel" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_d3lxl")
 
@@ -158,8 +158,8 @@ script = ExtResource("6_b7igg")
 bpm = 150
 notes_per_beat = 4
 beats_per_measure = 4
-last_note_for_load = 3000
-last_game_note = 3000
+last_note_for_load = 1015
+last_game_note = 1100
 
 [node name="StartTimer" type="Timer" parent="Conductor"]
 
@@ -277,7 +277,7 @@ theme_override_font_sizes/font_size = 30
 text = "Restart Level"
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
-[connection signal="tree_exited" from="Player" to="." method="reset_game"]
+[connection signal="tree_exited" from="Player" to="." method="restart_level"]
 [connection signal="beatS" from="Conductor" to="Duck" method="duckBeatUpdate"]
 [connection signal="measureS" from="Conductor" to="Duck" method="duckMeasureUpdate"]
 [connection signal="noteS" from="Conductor" to="Duck" method="duckNoteUpdate"]

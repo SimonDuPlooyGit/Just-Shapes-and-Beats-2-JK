@@ -9,6 +9,7 @@ radius = 37.7128
 height = 137.459
 
 [node name="A" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_88shk")
 wave_amplitude = 30.0
 wave_frequency = 3.0

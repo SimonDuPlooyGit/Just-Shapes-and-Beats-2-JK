@@ -7,6 +7,7 @@
 size = Vector2(799, 634)
 
 [node name="SamuraiSmall" type="Area2D"]
+process_mode = 1
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_2e2ra")
 

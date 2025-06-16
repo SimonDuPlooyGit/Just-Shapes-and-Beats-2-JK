@@ -41,7 +41,7 @@ func _physics_process(_delta):
 		$ProgressBar.visible = false
 	
 	if song_position_in_notes == last_game_note:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func _report_note():
 	if song_position_in_notes > last_reported_note:

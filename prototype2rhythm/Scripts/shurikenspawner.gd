@@ -13,7 +13,7 @@ var current_beat = 0
 var current_note = 0
 
 @onready var shuriken = preload("res://Scenes/shuriken.tscn")
-@onready var player = get_node("/root/node_2d/Player")
+@onready var player = get_node("/root/SamuraiLevel/Player")
 
 var locations = {
 	1: Vector2(64, -64),

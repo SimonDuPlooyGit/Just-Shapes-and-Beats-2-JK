@@ -7,6 +7,7 @@
 points = PackedVector2Array(1.334, 123.937, -49.2088, 98.8634, -73.2373, 47.8209, -41.7516, -29.1905, -0.323142, -125.902, 41.9339, -27.3995, 70.9339, 42.4481, 51.8768, 94.386)
 
 [node name="Droplet" type="Area2D"]
+process_mode = 1
 scale = Vector2(0.805, 0.805)
 script = ExtResource("1_jty2x")
 

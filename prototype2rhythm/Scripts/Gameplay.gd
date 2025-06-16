@@ -20,14 +20,45 @@ func check_esc():
 	elif Input.is_action_just_pressed("Pause") and get_tree().paused == true:
 		resume()
 
+func restart_level():
+	disable_pause_buttons()
+	safe_reload_scene()
+
 func return_to_menu():
-	resume()
+	disable_pause_buttons()
+	safe_return_to_menu()
+
+func safe_reload_scene():
+	var tree := get_tree()
+	if tree == null: return
+	var timer := tree.create_timer(0.01)
+	timer.timeout.connect(_on_reload_timeout)
+
+func _on_reload_timeout():
+	if get_tree() == null: return
+	get_tree().paused = false
+	if is_instance_valid(menu):
+		menu.visible = false
+	get_tree().reload_current_scene()
+
+func safe_return_to_menu():
+	var tree := get_tree()
+	if tree == null: return
+	var timer := tree.create_timer(0.01)
+	timer.timeout.connect(_on_return_timeout)
+
+func _on_return_timeout():
+	if get_tree() == null: return
+	get_tree().paused = false
+	if is_instance_valid(menu):
+		menu.visible = false
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+
 
 func _process(delta: float) -> void:
 	check_esc()
 
-
-func restart_level():
-	resume()
-	get_tree().reload_current_scene()
+func disable_pause_buttons():
+	$PauseMenu/Resume.disabled = true
+	$PauseMenu/Restart.disabled = true
+	$PauseMenu/Return.disabled = true
