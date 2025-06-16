@@ -62,7 +62,7 @@ func _report_note():
 		# Only emit beat and measure at the start of those cycles
 		if current_note % notes_per_beat == 0:
 			emit_signal("beatS", current_beat)
-			$Tick.play()
+			#$Tick.play()
 
 		emit_signal("noteS", current_note)
 		print("Note: " + str(current_note) + "Beat: " + str(current_beat) + "Measure: " + str(current_measure))

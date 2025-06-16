@@ -150,6 +150,7 @@ shape = SubResource("CircleShape2D_0e48y")
 process_mode = 1
 anchor_mode = 0
 script = ExtResource("4_7vmq5")
+bpm = 150
 
 [node name="Conductor" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
@@ -278,8 +279,11 @@ text = "Restart Level"
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="restart_level"]
+[connection signal="beatS" from="Conductor" to="Camera2D" method="beatUpdate"]
 [connection signal="beatS" from="Conductor" to="Duck" method="duckBeatUpdate"]
+[connection signal="measureS" from="Conductor" to="Camera2D" method="measureUpdate"]
 [connection signal="measureS" from="Conductor" to="Duck" method="duckMeasureUpdate"]
+[connection signal="noteS" from="Conductor" to="Camera2D" method="noteUpdate"]
 [connection signal="noteS" from="Conductor" to="Duck" method="duckNoteUpdate"]
 [connection signal="pressed" from="PauseMenu/Resume" to="." method="resume"]
 [connection signal="pressed" from="PauseMenu/Return" to="." method="return_to_menu"]
