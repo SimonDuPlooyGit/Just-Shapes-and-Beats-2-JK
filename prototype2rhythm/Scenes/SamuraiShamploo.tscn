@@ -28,10 +28,12 @@ radius = 4.69185
 bg_color = Color(0.6, 1, 0.6, 0.317647)
 
 [node name="node_2d" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_jk316")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
+process_mode = 1
 position = Vector2(960, 560)
 scale = Vector2(1, 0.974259)
 motion_mode = 1
@@ -53,10 +55,12 @@ scale = Vector2(0.53, 0.53)
 texture = ExtResource("4_74sup")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
 anchor_mode = 0
 script = ExtResource("3_vn30n")
 
 [node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 stream = ExtResource("4_j00bl")
 script = ExtResource("5_g8gpx")
 bpm = 75
@@ -92,6 +96,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_awv0y")
 show_percentage = false
 
 [node name="Spawners" type="Node" parent="."]
+process_mode = 1
 
 [node name="WordSpawner" type="Node" parent="Spawners"]
 script = ExtResource("10_vn30n")
@@ -335,47 +340,124 @@ texture = ExtResource("17_yn866")
 script = ExtResource("16_ba466")
 
 [node name="Branch" type="Sprite2D" parent="."]
+process_mode = 1
 position = Vector2(243, 143)
 scale = Vector2(1.89, 1.842)
 texture = ExtResource("12_g8gpx")
 
 [node name="Branch2" type="Sprite2D" parent="."]
+process_mode = 1
 position = Vector2(1675, 125)
 rotation = 3.14159
 scale = Vector2(1.9, 1.851)
 texture = ExtResource("12_g8gpx")
 
 [node name="Samurai" parent="." instance=ExtResource("13_p1nv1")]
+process_mode = 1
 position = Vector2(2460, 550)
 script = ExtResource("14_jk316")
 
 [node name="SmallSamurai" parent="." instance=ExtResource("13_p1nv1")]
+process_mode = 1
 visible = false
 position = Vector2(1155, 515)
 scale = Vector2(0.2, 0.2)
 script = ExtResource("14_jk316")
 
 [node name="SmallSamurai2" parent="." instance=ExtResource("13_p1nv1")]
+process_mode = 1
 visible = false
 position = Vector2(760, 515)
 scale = Vector2(-0.2, 0.2)
 script = ExtResource("14_jk316")
 
 [node name="SmallSamurai3" parent="." instance=ExtResource("13_p1nv1")]
+process_mode = 1
 visible = false
 position = Vector2(970, 378)
 scale = Vector2(0.2, 0.2)
 script = ExtResource("14_jk316")
 
 [node name="SmallSamurai4" parent="." instance=ExtResource("13_p1nv1")]
+process_mode = 1
 visible = false
 position = Vector2(940, 645)
 scale = Vector2(-0.2, 0.2)
 script = ExtResource("14_jk316")
 
 [node name="Shuriken" type="Sprite2D" parent="."]
+process_mode = 1
 position = Vector2(2206, 162)
 texture = ExtResource("19_grdfb")
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 960.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -313.0
+offset_right = 243.0
+offset_bottom = 451.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -242.5
+offset_top = -313.5
+offset_right = 243.5
+offset_bottom = -104.5
+theme_override_font_sizes/font_size = 40
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = -104.0
+offset_right = 168.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 30
+text = "Resume Game"
+
+[node name="Return" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = 67.0
+offset_right = 168.0
+offset_bottom = 202.0
+theme_override_font_sizes/font_size = 30
+text = "Return to Main Menu"
+
+[node name="Restart" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = 248.0
+offset_right = 168.0
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 30
+text = "Restart Level"
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="reset_game"]
@@ -394,3 +476,6 @@ texture = ExtResource("19_grdfb")
 [connection signal="noteS" from="Conductor" to="Samurai" method="update_note"]
 [connection signal="shackle_player" from="Spawners/WordSpawner" to="Player" method="shackle"]
 [connection signal="unshackle_player" from="Spawners/WordSpawner" to="Player" method="unshackle"]
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="resume"]
+[connection signal="pressed" from="PauseMenu/Return" to="." method="return_to_menu"]
+[connection signal="pressed" from="PauseMenu/Restart" to="." method="restart_level"]

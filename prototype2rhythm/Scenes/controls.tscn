@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctw5ob1vxhgja"]
+
+[ext_resource type="Script" uid="uid://d2574nuikf3pf" path="res://Scripts/controlsscreen.gd" id="1_8qavf"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qavf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -384.0
+offset_right = 480.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+text = "Controls:
+
+Move your character with W A S D
+
+SPACE is to dash. Your character will go
+transparent and have invincibility frames
+that will allow you to pass through objects.
+The dash also provides a speed boost.
+
+In some level gimmicks there are other mecahnics.
+For example in the samurai level
+you will be constrianed
+and have to use W A S D to parry!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 39.0
+offset_right = 475.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 34
+text = "Return to main menu"
+
+[connection signal="pressed" from="Return" to="." method="retun_to_menu"]

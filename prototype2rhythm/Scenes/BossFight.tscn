@@ -125,9 +125,11 @@ animations = [{
 points = PackedVector2Array(-73.333, -101.227, -50, -226.994, 183.333, -346.626, 843.333, -64.4171, 976.667, 125.767, 996.667, 404.908, 766.667, 628.834, 663.333, 687.117, 406.667, 717.792, 0, 696.319, -150, 619.632, -210, 512.27, -200, 346.626, -100, 193.252, -323.333, 58.2822, -370, -64.4171)
 
 [node name="node_2d" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_d3lxl")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+process_mode = 1
 position = Vector2(459, 534)
 scale = Vector2(1, 0.974259)
 collision_layer = 3
@@ -145,10 +147,12 @@ scale = Vector2(6.76, 6.4)
 shape = SubResource("CircleShape2D_0e48y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
 anchor_mode = 0
 script = ExtResource("4_7vmq5")
 
 [node name="Conductor" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 stream = ExtResource("5_xeqf3")
 script = ExtResource("6_b7igg")
 bpm = 150
@@ -185,6 +189,7 @@ show_percentage = false
 
 [node name="Duck" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+process_mode = 1
 position = Vector2(1589, 468)
 scale = Vector2(0.3, 0.326)
 sprite_frames = SubResource("SpriteFrames_kg31f")
@@ -202,8 +207,80 @@ script = ExtResource("15_7ekg7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Duck/Area2D"]
 shape = SubResource("ConvexPolygonShape2D_d3lxl")
 
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 960.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -313.0
+offset_right = 243.0
+offset_bottom = 451.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -242.5
+offset_top = -313.5
+offset_right = 243.5
+offset_bottom = -104.5
+theme_override_font_sizes/font_size = 40
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = -104.0
+offset_right = 168.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 30
+text = "Resume Game"
+
+[node name="Return" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = 67.0
+offset_right = 168.0
+offset_bottom = 202.0
+theme_override_font_sizes/font_size = 30
+text = "Return to Main Menu"
+
+[node name="Restart" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -164.0
+offset_top = 248.0
+offset_right = 168.0
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 30
+text = "Restart Level"
+
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="reset_game"]
 [connection signal="beatS" from="Conductor" to="Duck" method="duckBeatUpdate"]
 [connection signal="measureS" from="Conductor" to="Duck" method="duckMeasureUpdate"]
 [connection signal="noteS" from="Conductor" to="Duck" method="duckNoteUpdate"]
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="resume"]
+[connection signal="pressed" from="PauseMenu/Return" to="." method="return_to_menu"]
+[connection signal="pressed" from="PauseMenu/Restart" to="." method="restart_level"]
