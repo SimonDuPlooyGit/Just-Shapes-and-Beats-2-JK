@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cpejwnvtdvrh1"]
+[gd_scene load_steps=21 format=3 uid="uid://cpejwnvtdvrh1"]
 
 [ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_d3lxl"]
 [ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="2_7ekg7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b1met8bqfs6wk" path="res://Sprites/DuckFullyOpen.png" id="13_ksalt"]
 [ext_resource type="Script" uid="uid://c4qtlwf3pwmx4" path="res://Scripts/DuckBrain.gd" id="14_xvhne"]
 [ext_resource type="Script" uid="uid://bbninnkv30233" path="res://Scripts/duckcollider.gd" id="15_7ekg7"]
+[ext_resource type="Texture2D" uid="uid://dhy3ff1jh187n" path="res://Sprites/pondgame.png" id="16_awv0y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 4.69185
@@ -175,6 +176,7 @@ script = ExtResource("8_d3lxl")
 [node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("9_7ekg7")]
 offset_right = 1246.0
 offset_bottom = 260.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Duckstep
 By Chime and
 Tokyo Machine"
@@ -221,57 +223,68 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -1203.0
-offset_top = -862.0
+offset_top = -928.0
 offset_right = -718.0
-offset_bottom = -98.0
+offset_bottom = -164.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="PauseMenu"]
 offset_left = -242.5
-offset_top = -313.5
+offset_top = -379.5
 offset_right = 243.5
-offset_bottom = -104.5
+offset_bottom = -170.5
 theme_override_font_sizes/font_size = 40
 text = "Game Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Resume" type="Button" parent="PauseMenu"]
 process_mode = 3
 offset_left = -164.0
-offset_top = -104.0
+offset_top = -170.0
 offset_right = 168.0
-offset_bottom = 31.0
+offset_bottom = -35.0
 theme_override_font_sizes/font_size = 30
 text = "Resume Game"
+metadata/_edit_use_anchors_ = true
 
 [node name="Return" type="Button" parent="PauseMenu"]
 process_mode = 3
 offset_left = -164.0
-offset_top = 67.0
+offset_top = 1.0
 offset_right = 168.0
-offset_bottom = 202.0
+offset_bottom = 136.0
 theme_override_font_sizes/font_size = 30
 text = "Return to Main Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="Restart" type="Button" parent="PauseMenu"]
 process_mode = 3
 offset_left = -164.0
-offset_top = 248.0
+offset_top = 182.0
 offset_right = 168.0
-offset_bottom = 383.0
+offset_bottom = 317.0
 theme_override_font_sizes/font_size = 30
 text = "Restart Level"
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.883926, 0.923123, 1, 1)
 z_index = -2
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="Pondgame" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.0901961)
+z_index = -1
+position = Vector2(934, 545)
+texture = ExtResource("16_awv0y")
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="restart_level"]

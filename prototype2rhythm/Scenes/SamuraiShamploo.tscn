@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4674o8o3wdhq"]
+[gd_scene load_steps=25 format=3 uid="uid://4674o8o3wdhq"]
 
 [ext_resource type="Script" uid="uid://dh7fift5hwaok" path="res://Scripts/player.gd" id="1_j00bl"]
 [ext_resource type="Script" uid="uid://bds23ml0n0hjx" path="res://Scripts/Gameplay.gd" id="1_jk316"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://dtedwg7iukpj0" path="res://Scripts/letterCollisions.gd" id="17_hlcob"]
 [ext_resource type="Texture2D" uid="uid://dc4iq26yrhd5h" path="res://Sprites/redsquare.png" id="17_yn866"]
 [ext_resource type="Texture2D" uid="uid://dideaco3spmx3" path="res://Sprites/Shuriken.png" id="19_grdfb"]
+[ext_resource type="Texture2D" uid="uid://u0xobsqoem0m" path="res://Sprites/toriigate.png" id="22_t4h5p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 4.69185
@@ -83,6 +84,7 @@ script = ExtResource("7_p1nv1")
 [node name="Endtext" parent="Conductor/Node2D" instance=ExtResource("8_jk316")]
 offset_right = 1246.0
 offset_bottom = 260.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mortals
 By Warriyo and
 Tokyo Machine and Boom Kitty"
@@ -137,13 +139,13 @@ collision_layer = 2
 
 [node name="Swordslash7" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(182, 868)
+position = Vector2(119, 938)
 rotation = 0.785397
 collision_layer = 2
 
 [node name="Swordslash8" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(273, 808)
+position = Vector2(240, 820)
 rotation = 0.785397
 collision_layer = 2
 
@@ -342,6 +344,7 @@ offset_left = 875.0
 offset_top = 359.0
 offset_right = 1036.0
 offset_bottom = 486.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "W"
 horizontal_alignment = 1
@@ -352,6 +355,7 @@ offset_left = 695.0
 offset_top = 495.0
 offset_right = 856.0
 offset_bottom = 622.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "A"
 horizontal_alignment = 1
@@ -362,6 +366,7 @@ offset_left = 875.0
 offset_top = 627.0
 offset_right = 1036.0
 offset_bottom = 754.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "S"
 horizontal_alignment = 1
@@ -372,6 +377,7 @@ offset_left = 1060.0
 offset_top = 495.0
 offset_right = 1221.0
 offset_bottom = 622.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "D"
 horizontal_alignment = 1
@@ -454,19 +460,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1202.0
-offset_top = -830.0
-offset_right = -717.0
-offset_bottom = -66.0
+offset_left = -1191.5
+offset_top = -914.5
+offset_right = -706.5
+offset_bottom = -150.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0430392, 0.0430392, 0.0430392, 1)
 
 [node name="Label" type="Label" parent="PauseMenu"]
-offset_left = -242.5
-offset_top = -313.5
-offset_right = 243.5
-offset_bottom = -104.5
+offset_left = -232.0
+offset_top = -398.0
+offset_right = 254.0
+offset_bottom = -189.0
 theme_override_font_sizes/font_size = 40
 text = "Game Paused"
 horizontal_alignment = 1
@@ -474,38 +480,44 @@ vertical_alignment = 1
 
 [node name="Resume" type="Button" parent="PauseMenu"]
 process_mode = 3
-offset_left = -164.0
-offset_top = -104.0
-offset_right = 168.0
-offset_bottom = 31.0
+offset_left = -153.5
+offset_top = -188.5
+offset_right = 178.5
+offset_bottom = -53.5
 theme_override_font_sizes/font_size = 30
 text = "Resume Game"
 
 [node name="Return" type="Button" parent="PauseMenu"]
 process_mode = 3
-offset_left = -164.0
-offset_top = 67.0
-offset_right = 168.0
-offset_bottom = 202.0
+offset_left = -153.5
+offset_top = -17.5
+offset_right = 178.5
+offset_bottom = 117.5
 theme_override_font_sizes/font_size = 30
 text = "Return to Main Menu"
 
 [node name="Restart" type="Button" parent="PauseMenu"]
 process_mode = 3
-offset_left = -164.0
-offset_top = 248.0
-offset_right = 168.0
-offset_bottom = 383.0
+offset_left = -153.5
+offset_top = 163.5
+offset_right = 178.5
+offset_bottom = 298.5
 theme_override_font_sizes/font_size = 30
 text = "Restart Level"
 
 [node name="Background" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(1, 0.962245, 0.978342, 1)
 z_index = -2
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="Toriigate" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.164706)
+z_index = -1
+position = Vector2(965, 541)
+texture = ExtResource("22_t4h5p")
 
 [connection signal="life_lost" from="Player" to="Camera2D" method="start_shake"]
 [connection signal="tree_exited" from="Player" to="." method="restart_level"]

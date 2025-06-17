@@ -40,7 +40,7 @@ func _ready() -> void:
 var obstacle_schedule = {
 
 # Droplets for quacks
-117: [["spawnDroplet", Vector2(120,0), "down"]],
+117: [["spawnDroplet", Vector2(100,0), "down"]],
 118: [["spawnDroplet", Vector2(360,0), "down"]],
 120: [["spawnDroplet", Vector2(600,0), "down"]],
 122: [["spawnDroplet", Vector2(840,0), "down"]],
@@ -54,7 +54,7 @@ var obstacle_schedule = {
 139: [["spawnDroplet", Vector2(840,0), "down"]],
 140: [["spawnDroplet", Vector2(600,0), "down"]],
 142: [["spawnDroplet", Vector2(360,0), "down"]],
-149: [["spawnDroplet", Vector2(120,0), "down"]],
+149: [["spawnDroplet", Vector2(100,0), "down"]],
 150: [["spawnDroplet", Vector2(360,0), "down"]],
 152: [["spawnDroplet", Vector2(600,0), "down"]],
 154: [["spawnDroplet", Vector2(840,0), "down"]],
@@ -68,7 +68,7 @@ var obstacle_schedule = {
 168: [["spawnDroplet", Vector2(840,0), "down"]],
 169: [["spawnDroplet", Vector2(600,0), "down"]],
 170: [["spawnDroplet", Vector2(360,0), "down"]],
-171: [["spawnDroplet", Vector2(120,0), "down"]],
+171: [["spawnDroplet", Vector2(100,0), "down"]],
 172: [["spawnDroplet", Vector2(360,0), "down"]],
 174: [["spawnDroplet", Vector2(600,0), "down"]],
 175: [["spawnDroplet", Vector2(840,0), "down"]],
@@ -82,7 +82,7 @@ var obstacle_schedule = {
 197: [["spawnDroplet", Vector2(840,0), "down"]],
 198: [["spawnDroplet", Vector2(600,0), "down"]],
 200: [["spawnDroplet", Vector2(360,0), "down"]],
-202: [["spawnDroplet", Vector2(120,0), "down"]],
+202: [["spawnDroplet", Vector2(100,0), "down"]],
 203: [["spawnDroplet", Vector2(360,0), "down"]],
 204: [["spawnDroplet", Vector2(600,0), "down"]],
 206: [["spawnDroplet", Vector2(840,0), "down"]],
@@ -96,7 +96,7 @@ var obstacle_schedule = {
 224: [["spawnDroplet", Vector2(840,0), "down"]],
 226: [["spawnDroplet", Vector2(600,0), "down"]],
 227: [["spawnDroplet", Vector2(360,0), "down"]],
-228: [["spawnDroplet", Vector2(120,0), "down"]],
+228: [["spawnDroplet", Vector2(100,0), "down"]],
 230: [["spawnDroplet", Vector2(360,0), "down"]],
 232: [["spawnDroplet", Vector2(600,0), "down"]],
 233: [["spawnDroplet", Vector2(840,0), "down"]],
@@ -135,7 +135,7 @@ beatToNote(4, 29): [["shootBeam", Vector2(1700,665), "left"]],
 
 #Bass hit obstacles in drop section
 beatToNote(1,32): [
-["spawnDroplet", Vector2(120,0), "down"],
+["spawnDroplet", Vector2(100,0), "down"],
 ["spawnDroplet", Vector2(1800,1080), "up"],
 ],
 beatToNote(3,32): [
@@ -171,7 +171,7 @@ beatToNote(1,36): [
 ["spawnDroplet", Vector2(0,665), "right"],
 ],
 beatToNote(1,32): [
-["spawnDroplet", Vector2(120,0), "down"],
+["spawnDroplet", Vector2(100,0), "down"],
 ["spawnDroplet", Vector2(1800,1080), "up"],
 ],
 beatToNote(3,32): [
@@ -207,7 +207,7 @@ beatToNote(1,36): [
 ["spawnDroplet", Vector2(0,665), "right"],
 ],
 beatToNote(3,36): [
-["spawnDroplet", Vector2(120,0), "down"],
+["spawnDroplet", Vector2(100,0), "down"],
 ["spawnDroplet", Vector2(1800,1080), "up"],
 ],
 beatToNote(1,37): [
@@ -243,7 +243,7 @@ beatToNote(3,40): [
 ["spawnDroplet", Vector2(0,665), "right"],
 ],
 beatToNote(1,41): [
-["spawnDroplet", Vector2(120,0), "down"],
+["spawnDroplet", Vector2(100,0), "down"],
 ["spawnDroplet", Vector2(1800,1080), "up"],
 ],
 beatToNote(3,41): [
@@ -278,7 +278,7 @@ beatToNote(1,45): [
 ["spawnDroplet", Vector2(1920,665), "left"],
 ["spawnDroplet", Vector2(0,665), "right"],
 ],beatToNote(3,45): [
-["spawnDroplet", Vector2(120,0), "down"],
+["spawnDroplet", Vector2(100,0), "down"],
 ["spawnDroplet", Vector2(1800,1080), "up"],
 ],
 beatToNote(1,46): [
