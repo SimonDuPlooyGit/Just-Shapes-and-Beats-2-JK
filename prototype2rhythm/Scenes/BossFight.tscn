@@ -208,40 +208,26 @@ script = ExtResource("15_7ekg7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Duck/Area2D"]
 shape = SubResource("ConvexPolygonShape2D_d3lxl")
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
-z_index = 2
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 951.0
-offset_top = 460.0
-offset_right = 951.0
-offset_bottom = 460.0
-grow_horizontal = 2
-grow_vertical = 2
+offset = Vector2(960, 560)
+transform = Transform2D(1, 0, 0, 1, 960, 560)
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -242.0
-offset_top = -313.0
-offset_right = 243.0
-offset_bottom = 451.0
+offset_left = -1203.0
+offset_top = -862.0
+offset_right = -718.0
+offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="PauseMenu"]
-layout_mode = 0
 offset_left = -242.5
 offset_top = -313.5
 offset_right = 243.5
@@ -252,7 +238,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Resume" type="Button" parent="PauseMenu"]
-layout_mode = 0
+process_mode = 3
 offset_left = -164.0
 offset_top = -104.0
 offset_right = 168.0
@@ -261,7 +247,7 @@ theme_override_font_sizes/font_size = 30
 text = "Resume Game"
 
 [node name="Return" type="Button" parent="PauseMenu"]
-layout_mode = 0
+process_mode = 3
 offset_left = -164.0
 offset_top = 67.0
 offset_right = 168.0
@@ -270,7 +256,7 @@ theme_override_font_sizes/font_size = 30
 text = "Return to Main Menu"
 
 [node name="Restart" type="Button" parent="PauseMenu"]
-layout_mode = 0
+process_mode = 3
 offset_left = -164.0
 offset_top = 248.0
 offset_right = 168.0
