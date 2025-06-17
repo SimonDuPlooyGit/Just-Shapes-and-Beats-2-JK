@@ -11,15 +11,23 @@ var velocity := Vector2.ZERO
 var overlap_body
 var has_damaged_player := false
 
+@onready var telegraph_timer := Timer.new()
 var is_active := false
 
 func _ready() -> void:
+	telegraph_timer.wait_time = telegraph_time
+	telegraph_timer.one_shot = true
+	telegraph_timer.autostart = false
+	telegraph_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	add_child(telegraph_timer)
+	
 	# Initial state: invisible and harmless
 	modulate.a = 0.3
 	collision_shape.disabled = true
+	telegraph_timer.start()
 
 	# Wait for telegraph period
-	await get_tree().create_timer(telegraph_time).timeout
+	await telegraph_timer.timeout
 
 	# Activate: full opacity and enable collision
 	modulate.a = 1.0

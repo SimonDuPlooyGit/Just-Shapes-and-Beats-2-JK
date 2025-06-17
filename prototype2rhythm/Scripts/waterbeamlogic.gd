@@ -3,14 +3,18 @@ extends Area2D
 @onready var sprite := $Sprite2D
 @onready var collision_shape := $CollisionShape2D
 
-var telegraph_time := 0.0 # Time in seconds before it becomes active
-var active_time := 0.0 #Time in seconds where it shows on screen
-var direction := ""
-var overlap_body
+@export var telegraph_time := 0.0 # Time before activation
+@export var active_time := 0.0    # Time it stays active
+@export var direction := ""       # "up", "down", "left", "right"
+
 var has_damaged_player := false
+var overlap_body
+
+@onready var telegraph_timer := Timer.new()
+@onready var active_timer := Timer.new()
 
 func _ready() -> void:
-	
+	# Direction-based rotation
 	match direction:
 		"left":
 			pass
@@ -21,34 +25,38 @@ func _ready() -> void:
 		"down":
 			pass
 	
-	# Initial state: invisible and harmless
+	# Initial state: faint and inactive
 	modulate.a = 0.3
 	collision_shape.disabled = true
 
-	# Wait for telegraph period
-	await get_tree().create_timer(telegraph_time).timeout
+	# Add and configure timers
+	telegraph_timer.wait_time = telegraph_time
+	telegraph_timer.one_shot = true
+	telegraph_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	add_child(telegraph_timer)
 
-	# Activate: full opacity and enable collision
+	active_timer.wait_time = active_time
+	active_timer.one_shot = true
+	active_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	add_child(active_timer)
+
+	# Start telegraphing
+	telegraph_timer.start()
+	await telegraph_timer.timeout
+
+	# Beam becomes active
 	modulate.a = 1.0
 	collision_shape.disabled = false
 
-	# Optional: Auto-delete after some time
-	await get_tree().create_timer(active_time).timeout
+	# Start duration before removal
+	active_timer.start()
+	await active_timer.timeout
 	queue_free()
 
 func _process(delta: float) -> void:
-	
-	#Collision with player to lose lives
 	if has_overlapping_bodies() and not has_damaged_player:
-		overlap_body = self.get_overlapping_bodies()
+		overlap_body = get_overlapping_bodies()
 		for body in overlap_body:
 			if body.name == "Player":
-				#body.queue_free()
 				body.lose_life()
 				has_damaged_player = true
-				pass
-
-# Called when something enters the area
-func _on_body_entered(body: Node) -> void:
-	if body.name == "Player":
-		print("Player hit by water beam!")
