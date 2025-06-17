@@ -109,32 +109,32 @@ script = ExtResource("12_1lwt5")
 
 [node name="Swordslash" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(850, 160)
+position = Vector2(850, 32)
 collision_layer = 2
 
 [node name="Swordslash2" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(850, 290)
+position = Vector2(850, 162)
 collision_layer = 2
 
 [node name="Swordslash3" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(850, 420)
+position = Vector2(850, 292)
 collision_layer = 2
 
 [node name="Swordslash4" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(850, 550)
+position = Vector2(850, 422)
 collision_layer = 2
 
 [node name="Swordslash5" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(850, 680)
+position = Vector2(850, 557)
 collision_layer = 2
 
 [node name="Swordslash6" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
 visible = false
-position = Vector2(850, 810)
+position = Vector2(850, 685)
 collision_layer = 2
 
 [node name="Swordslash7" parent="Spawners/SlashSpawner" instance=ExtResource("15_jk316")]
