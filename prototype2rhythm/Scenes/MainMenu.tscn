@@ -62,7 +62,7 @@ offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "How To Play
+text = "Controls
 "
 
 [connection signal="pressed" from="Startgame" to="." method="change_to_levels"]
