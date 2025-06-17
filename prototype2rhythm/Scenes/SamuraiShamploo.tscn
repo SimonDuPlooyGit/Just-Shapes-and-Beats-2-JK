@@ -337,6 +337,46 @@ rotation = 1.5708
 scale = Vector2(0.00713731, 0.262795)
 texture = ExtResource("17_yn866")
 
+[node name="W" type="Label" parent="Spawners/SamuraiSpawner/Hitzones"]
+offset_left = 875.0
+offset_top = 359.0
+offset_right = 1036.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 30
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="Label" parent="Spawners/SamuraiSpawner/Hitzones"]
+offset_left = 695.0
+offset_top = 495.0
+offset_right = 856.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 30
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="S" type="Label" parent="Spawners/SamuraiSpawner/Hitzones"]
+offset_left = 875.0
+offset_top = 627.0
+offset_right = 1036.0
+offset_bottom = 754.0
+theme_override_font_sizes/font_size = 30
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D" type="Label" parent="Spawners/SamuraiSpawner/Hitzones"]
+offset_left = 1060.0
+offset_top = 495.0
+offset_right = 1221.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 30
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ShurikenSpawner" type="Node" parent="Spawners"]
 script = ExtResource("16_ba466")
 
@@ -404,6 +444,7 @@ texture = ExtResource("19_grdfb")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 offset = Vector2(960, 560)
 transform = Transform2D(1, 0, 0, 1, 960, 560)
 
@@ -419,7 +460,7 @@ offset_right = -717.0
 offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
 
 [node name="Label" type="Label" parent="PauseMenu"]
 offset_left = -242.5

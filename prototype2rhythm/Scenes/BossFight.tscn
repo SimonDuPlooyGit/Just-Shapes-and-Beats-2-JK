@@ -210,6 +210,7 @@ shape = SubResource("ConvexPolygonShape2D_d3lxl")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 offset = Vector2(960, 560)
 transform = Transform2D(1, 0, 0, 1, 960, 560)
 
@@ -225,7 +226,7 @@ offset_right = -718.0
 offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.0646965, 0.0646965, 0.0646965, 1)
 
 [node name="Label" type="Label" parent="PauseMenu"]
 offset_left = -242.5
